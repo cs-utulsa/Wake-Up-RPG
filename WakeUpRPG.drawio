@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-10-06T18:23:25.784Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" etag="xpT23dXYRswGWL-vJYp2" version="20.4.0" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-10-06T18:24:14.072Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" etag="bft1DYaRu1vKF4Dh7QKk" version="20.4.0" type="github" pages="2">
   <diagram name="5 Day MVP Outline" id="9f46799a-70d6-7492-0946-bef42562c5a5">
     <mxGraphModel dx="1214" dy="674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -235,7 +235,7 @@
         <mxCell id="VK2U-SFWhEk03zJ1eUO5-5" value="" style="line;html=1;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="VK2U-SFWhEk03zJ1eUO5-2">
           <mxGeometry y="96" width="160" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="VK2U-SFWhEk03zJ1eUO5-6" value="+button-keyPressing(tap)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="VK2U-SFWhEk03zJ1eUO5-2">
+        <mxCell id="VK2U-SFWhEk03zJ1eUO5-6" value="+slide-arrowPressing(slide)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="VK2U-SFWhEk03zJ1eUO5-2">
           <mxGeometry y="104" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="VK2U-SFWhEk03zJ1eUO5-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.563;exitY=0.988;exitDx=0;exitDy=0;endArrow=diamondThin;endFill=0;endSize=16;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="78961159f06e98e8-97" target="VK2U-SFWhEk03zJ1eUO5-2">
