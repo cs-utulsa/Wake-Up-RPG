@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-10-12T22:07:54.059Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="jh3gUp12XJsyBgN1OxM_" version="20.4.0" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2022-10-12T22:39:01.988Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 Edg/106.0.1370.37" etag="HFLyaTpCHdpHPY0soLqE" version="20.4.0" type="github" pages="4">
   <diagram name="5 Day MVP Outline" id="9f46799a-70d6-7492-0946-bef42562c5a5">
-    <mxGraphModel dx="1422" dy="1587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="1389" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -301,7 +301,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="6meH98MUslnvdNw96rh4" name="Sprint 1 Architecture Diagram">
-    <mxGraphModel dx="1422" dy="737" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="539" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -401,10 +401,10 @@
         <mxCell id="quLU_MBTLEv5vMP2JPEt-37" value="Visual Design" style="swimlane;" parent="1" vertex="1">
           <mxGeometry x="30" y="600" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-38" value="Photoshop&lt;br&gt;(Photoeditor)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-37" vertex="1">
-          <mxGeometry x="50" y="80" width="90" height="60" as="geometry" />
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-38" value="&lt;b&gt;Photoshop&lt;/b&gt;&lt;br&gt;(Photoeditor and Painting Background assets)&lt;br&gt;&lt;b&gt;Illustrator&lt;/b&gt; (Character elements)&lt;br&gt;&lt;b&gt;PixArt&lt;br&gt;&lt;/b&gt;(Photoeditor)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-37" vertex="1">
+          <mxGeometry x="30" y="40" width="110" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="KnixvAbrQb1AJwFnI2j0-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="quLU_MBTLEv5vMP2JPEt-38" target="quLU_MBTLEv5vMP2JPEt-14">
+        <mxCell id="KnixvAbrQb1AJwFnI2j0-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-38" target="quLU_MBTLEv5vMP2JPEt-14" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
