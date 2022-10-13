@@ -1,4 +1,148 @@
-<mxfile host="app.diagrams.net" modified="2022-10-13T02:48:17.617Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" etag="-L5AO1IJfxQ1pFQgRRmN" version="20.4.0" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2022-10-13T02:49:55.182Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36" etag="qOc3h12Z3psXr0vWiGjL" version="20.4.0" type="github" pages="5">
+  <diagram id="6meH98MUslnvdNw96rh4" name="Sprint 1 Architecture Diagram">
+    <mxGraphModel dx="1967" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-1" value="Programming" style="swimlane;" parent="1" vertex="1">
+          <mxGeometry x="610" y="100" width="160" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-5" value="&lt;b&gt;VS Code&lt;br&gt;&lt;/b&gt;(IDE)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-1" vertex="1">
+          <mxGeometry x="20" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="quLU_MBTLEv5vMP2JPEt-1" source="quLU_MBTLEv5vMP2JPEt-6" target="quLU_MBTLEv5vMP2JPEt-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-6" value="&lt;b&gt;C#&lt;br&gt;&lt;/b&gt;(Programming Language)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-1" vertex="1">
+          <mxGeometry x="20" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-12" value="Game Development" style="swimlane;" parent="1" vertex="1">
+          <mxGeometry x="360" y="140" width="170" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="quLU_MBTLEv5vMP2JPEt-12" source="quLU_MBTLEv5vMP2JPEt-13" target="quLU_MBTLEv5vMP2JPEt-14" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="85" y="60" />
+              <mxPoint x="85" y="90" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-13" value="&lt;b&gt;Unity&lt;/b&gt;&lt;br&gt;(Game Engine)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-12" vertex="1">
+          <mxGeometry x="25" y="30" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="quLU_MBTLEv5vMP2JPEt-12" source="quLU_MBTLEv5vMP2JPEt-14" target="quLU_MBTLEv5vMP2JPEt-13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-14" value="&lt;b&gt;Unity Editor&lt;br&gt;&lt;/b&gt;(Game Development Software)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-12" vertex="1">
+          <mxGeometry x="25" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-14" target="quLU_MBTLEv5vMP2JPEt-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-5" target="quLU_MBTLEv5vMP2JPEt-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-20" value="Version Control" style="swimlane;" parent="1" vertex="1">
+          <mxGeometry x="810" y="100" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-21" value="&lt;b&gt;GitHub&lt;br&gt;&lt;/b&gt;(Cloud-based Repository Host)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-20" vertex="1">
+          <mxGeometry x="40" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="quLU_MBTLEv5vMP2JPEt-20" source="quLU_MBTLEv5vMP2JPEt-22" target="quLU_MBTLEv5vMP2JPEt-21" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-22" value="&lt;b&gt;Git&lt;/b&gt;&lt;br&gt;(Version Control Software)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-20" vertex="1">
+          <mxGeometry x="40" y="130" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-21" target="quLU_MBTLEv5vMP2JPEt-14" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="790" y="180" />
+              <mxPoint x="790" y="340" />
+              <mxPoint x="570" y="340" />
+              <mxPoint x="570" y="265" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-14" target="quLU_MBTLEv5vMP2JPEt-21" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="265" />
+              <mxPoint x="570" y="340" />
+              <mxPoint x="790" y="340" />
+              <mxPoint x="790" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-26" value="Distribution" style="swimlane;" parent="1" vertex="1">
+          <mxGeometry x="550" y="390" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-27" value="&lt;b&gt;Itch.io&lt;br&gt;&lt;/b&gt;(Game Distribution website)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-26" vertex="1">
+          <mxGeometry x="25" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-29" value="User Hardware" style="swimlane;" parent="1" vertex="1">
+          <mxGeometry x="790" y="380" width="150" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-30" value="&lt;b&gt;Android&lt;br&gt;&lt;/b&gt;(Smart Phone)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-29" vertex="1">
+          <mxGeometry x="15" y="55" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3cr7TTdyQsQUbYh5La0z-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="quLU_MBTLEv5vMP2JPEt-31" target="quLU_MBTLEv5vMP2JPEt-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-31" value="&lt;b&gt;Blink of An Eye&lt;br&gt;&lt;/b&gt;(Game)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="385" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-14" target="quLU_MBTLEv5vMP2JPEt-31" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-27" target="quLU_MBTLEv5vMP2JPEt-30" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="810" y="450" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-37" value="Visual Design" style="swimlane;" parent="1" vertex="1">
+          <mxGeometry x="-120" y="80" width="310" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="quLU_MBTLEv5vMP2JPEt-38" value="&lt;b&gt;Photoshop&lt;/b&gt;&lt;br&gt;(Photoeditor and Painting Background assets)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-37" vertex="1">
+          <mxGeometry x="25" y="40" width="125" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="P7izZeqNrE4SHz4a2hoK-5" value="&lt;b&gt;Illustrator&lt;/b&gt;&lt;br&gt;(Character Assets)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-37" vertex="1">
+          <mxGeometry x="25" y="150" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="P7izZeqNrE4SHz4a2hoK-6" value="&lt;b&gt;PixArt&lt;/b&gt;&lt;br&gt;(Photoeditor)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-37" vertex="1">
+          <mxGeometry x="170" y="140" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="P7izZeqNrE4SHz4a2hoK-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.572;entryDx=0;entryDy=0;entryPerimeter=0;" parent="quLU_MBTLEv5vMP2JPEt-37" source="P7izZeqNrE4SHz4a2hoK-5" target="P7izZeqNrE4SHz4a2hoK-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P7izZeqNrE4SHz4a2hoK-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="quLU_MBTLEv5vMP2JPEt-37" source="quLU_MBTLEv5vMP2JPEt-38" target="P7izZeqNrE4SHz4a2hoK-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnixvAbrQb1AJwFnI2j0-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-38" target="quLU_MBTLEv5vMP2JPEt-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P7izZeqNrE4SHz4a2hoK-1" value="Audio Software" style="swimlane;" parent="1" vertex="1">
+          <mxGeometry x="-120" y="340" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="cTi0YPktzEkrPZD7DpD5-1" value="&lt;b&gt;After Effects&lt;/b&gt;&lt;br&gt;(Compiling and mixing sound effects with Boombox Plugin)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="P7izZeqNrE4SHz4a2hoK-1">
+          <mxGeometry x="40" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="P7izZeqNrE4SHz4a2hoK-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="P7izZeqNrE4SHz4a2hoK-6" target="quLU_MBTLEv5vMP2JPEt-14" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="350" y="250" />
+              <mxPoint x="350" y="250" />
+            </Array>
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cTi0YPktzEkrPZD7DpD5-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cTi0YPktzEkrPZD7DpD5-1" target="quLU_MBTLEv5vMP2JPEt-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
   <diagram name="5 Day MVP Outline" id="9f46799a-70d6-7492-0946-bef42562c5a5">
     <mxGraphModel dx="782" dy="1318" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -296,155 +440,6 @@
         </mxCell>
         <mxCell id="la7hJ56vn-kodQnXd6Ug-4" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="la7hJ56vn-kodQnXd6Ug-1" vertex="1">
           <mxGeometry y="168" width="160" height="26" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-  <diagram id="6meH98MUslnvdNw96rh4" name="Sprint 1 Architecture Diagram">
-    <mxGraphModel dx="1967" dy="669" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-1" value="Programming" style="swimlane;" parent="1" vertex="1">
-          <mxGeometry x="610" y="100" width="160" height="200" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-5" value="&lt;b&gt;VS Code&lt;br&gt;&lt;/b&gt;(IDE)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-1" vertex="1">
-          <mxGeometry x="20" y="40" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="quLU_MBTLEv5vMP2JPEt-1" source="quLU_MBTLEv5vMP2JPEt-6" target="quLU_MBTLEv5vMP2JPEt-5" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-6" value="&lt;b&gt;C#&lt;br&gt;&lt;/b&gt;(Programming Language)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-1" vertex="1">
-          <mxGeometry x="20" y="120" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-12" value="Game Development" style="swimlane;" parent="1" vertex="1">
-          <mxGeometry x="360" y="140" width="170" height="170" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="quLU_MBTLEv5vMP2JPEt-12" source="quLU_MBTLEv5vMP2JPEt-13" target="quLU_MBTLEv5vMP2JPEt-14" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="85" y="60" />
-              <mxPoint x="85" y="90" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-13" value="&lt;b&gt;Unity&lt;/b&gt;&lt;br&gt;(Game Engine)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-12" vertex="1">
-          <mxGeometry x="25" y="30" width="120" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="quLU_MBTLEv5vMP2JPEt-12" source="quLU_MBTLEv5vMP2JPEt-14" target="quLU_MBTLEv5vMP2JPEt-13" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-14" value="&lt;b&gt;Unity Editor&lt;br&gt;&lt;/b&gt;(Game Development Software)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-12" vertex="1">
-          <mxGeometry x="25" y="80" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-14" target="quLU_MBTLEv5vMP2JPEt-5" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-5" target="quLU_MBTLEv5vMP2JPEt-14" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-20" value="Version Control" style="swimlane;" parent="1" vertex="1">
-          <mxGeometry x="810" y="100" width="200" height="200" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-21" value="&lt;b&gt;GitHub&lt;br&gt;&lt;/b&gt;(Cloud-based Repository Host)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-20" vertex="1">
-          <mxGeometry x="40" y="50" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="quLU_MBTLEv5vMP2JPEt-20" source="quLU_MBTLEv5vMP2JPEt-22" target="quLU_MBTLEv5vMP2JPEt-21" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-22" value="&lt;b&gt;Git&lt;/b&gt;&lt;br&gt;(Version Control Software)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-20" vertex="1">
-          <mxGeometry x="40" y="130" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-21" target="quLU_MBTLEv5vMP2JPEt-14" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="790" y="180" />
-              <mxPoint x="790" y="340" />
-              <mxPoint x="570" y="340" />
-              <mxPoint x="570" y="265" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-14" target="quLU_MBTLEv5vMP2JPEt-21" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="570" y="265" />
-              <mxPoint x="570" y="340" />
-              <mxPoint x="790" y="340" />
-              <mxPoint x="790" y="180" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-26" value="Distribution" style="swimlane;" parent="1" vertex="1">
-          <mxGeometry x="550" y="390" width="160" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-27" value="&lt;b&gt;Itch.io&lt;br&gt;&lt;/b&gt;(Game Distribution website)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-26" vertex="1">
-          <mxGeometry x="25" y="40" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-29" value="User Hardware" style="swimlane;" parent="1" vertex="1">
-          <mxGeometry x="790" y="380" width="150" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-30" value="&lt;b&gt;Android&lt;br&gt;&lt;/b&gt;(Smart Phone)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-29" vertex="1">
-          <mxGeometry x="15" y="55" width="120" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-31" target="quLU_MBTLEv5vMP2JPEt-27" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="330" y="410" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="440" y="455" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-31" value="&lt;b&gt;Blink of An Eye&lt;br&gt;&lt;/b&gt;(Game)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="385" y="440" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-14" target="quLU_MBTLEv5vMP2JPEt-31" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-27" target="quLU_MBTLEv5vMP2JPEt-30" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="810" y="450" as="targetPoint" />
-            <Array as="points" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-37" value="Visual Design" style="swimlane;" parent="1" vertex="1">
-          <mxGeometry x="-120" y="80" width="310" height="220" as="geometry" />
-        </mxCell>
-        <mxCell id="quLU_MBTLEv5vMP2JPEt-38" value="&lt;b&gt;Photoshop&lt;/b&gt;&lt;br&gt;(Photoeditor and Painting Background assets)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-37" vertex="1">
-          <mxGeometry x="25" y="40" width="125" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="P7izZeqNrE4SHz4a2hoK-5" value="&lt;b&gt;Illustrator&lt;/b&gt;&lt;br&gt;(Character Assets)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-37" vertex="1">
-          <mxGeometry x="25" y="150" width="120" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="P7izZeqNrE4SHz4a2hoK-6" value="&lt;b&gt;PixArt&lt;/b&gt;&lt;br&gt;(Photoeditor)" style="rounded=0;whiteSpace=wrap;html=1;" parent="quLU_MBTLEv5vMP2JPEt-37" vertex="1">
-          <mxGeometry x="170" y="140" width="110" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="P7izZeqNrE4SHz4a2hoK-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.572;entryDx=0;entryDy=0;entryPerimeter=0;" parent="quLU_MBTLEv5vMP2JPEt-37" source="P7izZeqNrE4SHz4a2hoK-5" target="P7izZeqNrE4SHz4a2hoK-6" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="P7izZeqNrE4SHz4a2hoK-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="quLU_MBTLEv5vMP2JPEt-37" source="quLU_MBTLEv5vMP2JPEt-38" target="P7izZeqNrE4SHz4a2hoK-6" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="KnixvAbrQb1AJwFnI2j0-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="quLU_MBTLEv5vMP2JPEt-38" target="quLU_MBTLEv5vMP2JPEt-14" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="P7izZeqNrE4SHz4a2hoK-1" value="Audio Software" style="swimlane;" parent="1" vertex="1">
-          <mxGeometry x="-120" y="340" width="200" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="cTi0YPktzEkrPZD7DpD5-1" value="&lt;b&gt;After Effects&lt;/b&gt;&lt;br&gt;(Compiling and mixing sound effects with Boombox Plugin)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="P7izZeqNrE4SHz4a2hoK-1">
-          <mxGeometry x="40" y="50" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="P7izZeqNrE4SHz4a2hoK-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="P7izZeqNrE4SHz4a2hoK-6" target="quLU_MBTLEv5vMP2JPEt-14" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="350" y="250" />
-              <mxPoint x="350" y="250" />
-            </Array>
-            <mxPoint x="450" y="250" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="cTi0YPktzEkrPZD7DpD5-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cTi0YPktzEkrPZD7DpD5-1" target="quLU_MBTLEv5vMP2JPEt-14">
-          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
