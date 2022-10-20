@@ -37,44 +37,32 @@ namespace UnityEditor.Tilemaps
             return sprites;
         }
 
-        private static bool AllSpritesAreSameSizeOrMultiples(List<Sprite> sprites)
+        private static bool AllSpritesAreSameSize(List<Sprite> sprites)
         {
-            if (sprites.Count == 0)
+            if (!sprites.Any())
+            {
                 return false;
-            if (sprites.Count == 1)
-                return true;
-
-            var size = new Vector2(sprites[0].rect.width, sprites[0].rect.height);
-            for (int i = 1; i < sprites.Count; i++)
-            {
-                var rect = sprites[i].rect;
-                if (rect.width < size.x)
-                    size.x = rect.width;
-                if (rect.height < size.y)
-                    size.y = rect.height;
             }
-            foreach (var sprite in sprites)
+
+            // If sprites are different sizes (not grid sliced). So we abort.
+            for (int i = 1; i < sprites.Count - 1; i++)
             {
-                var rect = sprite.rect;
-                if (rect.width % size.x > 0)
+                if ((int)sprites[i].rect.width != (int)sprites[i + 1].rect.width ||
+                    (int)sprites[i].rect.height != (int)sprites[i + 1].rect.height)
+                {
                     return false;
-                if (rect.height % size.y > 0)
-                    return false;
+                }
             }
             return true;
         }
 
-        /// <summary>
-        /// Converts Objects that can be laid out in the Tile Palette and organises them for placement into a given CellLayout
-        /// </summary>
-        /// <param name="sheetTextures">Textures containing 2-N equal sized Sprites</param>
-        /// <param name="singleSprites">All the leftover Sprites that were in same texture but different sizes or just dragged in as Sprite</param>
-        /// <param name="tiles">Just plain tiles</param>
-        /// <param name="cellLayout">Cell Layout to place objects on</param>
-        /// <returns>Dictionary mapping the positions of the Objects on the Grid Layout with details of how to place the Objects</returns>
-        public static Dictionary<Vector2Int, TileDragAndDropHoverData> CreateHoverData(List<Texture2D> sheetTextures, List<Sprite> singleSprites, List<TileBase> tiles, GridLayout.CellLayout cellLayout)
+        // Input:
+        // sheetTextures -> textures containing 2-N equal sized Sprites)
+        // singleSprites -> All the leftover Sprites that were in same texture but different sizes or just dragged in as Sprite
+        // tiles -> Just plain tiles
+        public static Dictionary<Vector2Int, Object> CreateHoverData(List<Texture2D> sheetTextures, List<Sprite> singleSprites, List<TileBase> tiles)
         {
-            Dictionary<Vector2Int, TileDragAndDropHoverData> result = new Dictionary<Vector2Int, TileDragAndDropHoverData>();
+            Dictionary<Vector2Int, Object> result = new Dictionary<Vector2Int, Object>();
 
             Vector2Int currentPosition = new Vector2Int(0, 0);
             int width = 0;
@@ -83,8 +71,8 @@ namespace UnityEditor.Tilemaps
             {
                 foreach (Texture2D sheetTexture in sheetTextures)
                 {
-                    Dictionary<Vector2Int, TileDragAndDropHoverData> sheet = CreateHoverData(sheetTexture, cellLayout);
-                    foreach (KeyValuePair<Vector2Int, TileDragAndDropHoverData> item in sheet)
+                    Dictionary<Vector2Int, Object> sheet = CreateHoverData(sheetTexture);
+                    foreach (KeyValuePair<Vector2Int, Object> item in sheet)
                     {
                         result.Add(item.Key + currentPosition, item.Value);
                     }
@@ -100,7 +88,7 @@ namespace UnityEditor.Tilemaps
                 width = Mathf.RoundToInt(Mathf.Sqrt(singleSprites.Count));
                 foreach (Sprite sprite in singleSprites)
                 {
-                    result.Add(currentPosition, new TileDragAndDropHoverData(sprite));
+                    result.Add(currentPosition, sprite);
                     currentPosition += new Vector2Int(1, 0);
                     if (currentPosition.x >= width)
                         currentPosition = new Vector2Int(0, currentPosition.y - 1);
@@ -114,7 +102,7 @@ namespace UnityEditor.Tilemaps
                 width = Math.Max(Mathf.RoundToInt(Mathf.Sqrt(tiles.Count)), width);
                 foreach (TileBase tile in tiles)
                 {
-                    result.Add(currentPosition, new TileDragAndDropHoverData(tile));
+                    result.Add(currentPosition, tile);
                     currentPosition += new Vector2Int(1, 0);
                     if (currentPosition.x >= width)
                         currentPosition = new Vector2Int(0, currentPosition.y - 1);
@@ -134,7 +122,7 @@ namespace UnityEditor.Tilemaps
                 {
                     Texture2D texture = obj as Texture2D;
                     List<Sprite> sprites = GetSpritesFromTexture(texture);
-                    if (sprites.Count > 1 && AllSpritesAreSameSizeOrMultiples(sprites))
+                    if (sprites.Count() > 1 && AllSpritesAreSameSize(sprites))
                     {
                         result.Add(texture);
                     }
@@ -157,7 +145,7 @@ namespace UnityEditor.Tilemaps
                 {
                     Texture2D texture = obj as Texture2D;
                     List<Sprite> sprites = GetSpritesFromTexture(texture);
-                    if (sprites.Count == 1 || !AllSpritesAreSameSizeOrMultiples(sprites))
+                    if (sprites.Count == 1 || !AllSpritesAreSameSize(sprites))
                     {
                         result.AddRange(sprites);
                     }
@@ -241,38 +229,19 @@ namespace UnityEditor.Tilemaps
         }
 
         // Turn texture pixel position into integer grid position based on cell size, offset size and padding
-        private static void GetGridPosition(Sprite sprite, Vector2Int cellPixelSize, Vector2Int offsetSize, Vector2Int paddingSize, out Vector2Int cellPosition, out Vector3 positionOffset)
+        private static Vector2Int GetGridPosition(Sprite sprite, Vector2Int cellPixelSize, Vector2Int offsetSize, Vector2Int paddingSize)
         {
-            var spritePosition = sprite.rect.position;
-            var spriteCenter = sprite.rect.center;
-            var position = new Vector2(
-                ((spriteCenter.x - offsetSize.x) / (cellPixelSize.x + paddingSize.x)),
-                (-(sprite.texture.height - spriteCenter.y - offsetSize.y) / (cellPixelSize.y + paddingSize.y)) + 1
+            return new Vector2Int(
+                Mathf.FloorToInt((sprite.rect.center.x - offsetSize.x) / (cellPixelSize.x + paddingSize.x)),
+                Mathf.FloorToInt(-(sprite.texture.height - sprite.rect.center.y - offsetSize.y) / (cellPixelSize.y + paddingSize.y)) + 1
             );
-            cellPosition = new Vector2Int(Mathf.FloorToInt(position.x), Mathf.FloorToInt(position.y));
-            positionOffset = (spriteCenter - spritePosition) / cellPixelSize;
-            positionOffset.x = (float)(positionOffset.x - Math.Truncate(positionOffset.x));
-            positionOffset.y = (float)(positionOffset.y - Math.Truncate(positionOffset.y));
-        }
-
-        // Turn texture pixel position into integer isometric grid position based on cell size and offset size
-        private static void GetIsometricGridPosition(Sprite sprite, Vector2Int cellPixelSize, Vector2Int offsetSize, out Vector2Int cellPosition)
-        {
-            var offsetPosition = new Vector2(sprite.rect.center.x - offsetSize.x, sprite.rect.center.y - offsetSize.y);
-            var cellStride = new Vector2(cellPixelSize.x, cellPixelSize.y) * 0.5f;
-            var invCellStride = new Vector2(1.0f / cellStride.x, 1.0f / cellStride.y);
-
-            var position = offsetPosition * invCellStride;
-            position.y = (position.y - position.x) * 0.5f;
-            position.x += position.y;
-            cellPosition = new Vector2Int(Mathf.FloorToInt(position.x), Mathf.FloorToInt(position.y));
         }
 
         // Organizes all the sprites in a single texture nicely on a 2D "table" based on their original texture position
         // Only call this with spritesheet with all Sprites equal size
-        public static Dictionary<Vector2Int, TileDragAndDropHoverData> CreateHoverData(Texture2D sheet, GridLayout.CellLayout cellLayout)
+        public static Dictionary<Vector2Int, Object> CreateHoverData(Texture2D sheet)
         {
-            Dictionary<Vector2Int, TileDragAndDropHoverData> result = new Dictionary<Vector2Int, TileDragAndDropHoverData>();
+            Dictionary<Vector2Int, Object> result = new Dictionary<Vector2Int, Object>();
             List<Sprite> sprites = GetSpritesFromTexture(sheet);
             Vector2Int cellPixelSize = EstimateGridPixelSize(sprites);
 
@@ -282,69 +251,29 @@ namespace UnityEditor.Tilemaps
             // Get Padding
             Vector2Int paddingSize = EstimateGridPaddingSize(sprites, cellPixelSize, offsetSize);
 
-            if ((cellLayout == GridLayout.CellLayout.Isometric
-                 || cellLayout == GridLayout.CellLayout.IsometricZAsY)
-                && (HasSpriteRectOverlaps(sprites)))
+            foreach (Sprite sprite in sprites)
             {
-                foreach (Sprite sprite in sprites)
-                {
-                    GetIsometricGridPosition(sprite, cellPixelSize, offsetSize, out Vector2Int position);
-                    result[position] = new TileDragAndDropHoverData(sprite, Vector3.zero, (Vector2)cellPixelSize / sprite.pixelsPerUnit, false);
-                }
-            }
-            else
-            {
-                foreach (Sprite sprite in sprites)
-                {
-                    GetGridPosition(sprite, cellPixelSize, offsetSize, paddingSize, out Vector2Int position, out Vector3 offset);
-                    result[position] = new TileDragAndDropHoverData(sprite, offset, (Vector2)cellPixelSize / sprite.pixelsPerUnit);
-                }
+                Vector2Int position = GetGridPosition(sprite, cellPixelSize, offsetSize, paddingSize);
+                result[position] = sprite;
             }
 
             return result;
         }
 
-        private static bool HasSpriteRectOverlaps(IReadOnlyList<Sprite> sprites)
+        public static Dictionary<Vector2Int, TileBase> ConvertToTileSheet(Dictionary<Vector2Int, Object> sheet)
         {
-            var count = sprites.Count;
-            for (int i = 0; i < count; i++)
-            {
-                var rect = sprites[i].rect;
-                for (int j = i + 1; j < count; j++)
-                {
-                    if (rect.Overlaps(sprites[j].rect))
-                        return true;
-                }
-            }
-            return false;
-        }
+            Dictionary<Vector2Int, TileBase> result = new Dictionary<Vector2Int, TileBase>();
 
-        internal static string GenerateUniqueNameForNamelessSprite(Sprite sprite, HashSet<string> uniqueNames, ref int count)
-        {
-            var baseName = "Nameless";
-            if (sprite.texture != null)
-                baseName = sprite.texture.name;
-            string name;
-            do
-            {
-                name = $"{baseName}_{count++}";
-            }
-            while (uniqueNames.Contains(name));
-            return name;
-        }
-
-        public static List<TileBase> ConvertToTileSheet(Dictionary<Vector2Int, TileDragAndDropHoverData> sheet)
-        {
-            List<TileBase> result = new List<TileBase>();
-
-            string defaultPath = TileDragAndDropManager.GetDefaultTileAssetPath();
+            string defaultPath = ProjectBrowser.s_LastInteractedProjectBrowser
+                ? ProjectBrowser.s_LastInteractedProjectBrowser.GetActiveFolderPath()
+                : "Assets";
 
             // Early out if all objects are already tiles
-            if (sheet.Values.ToList().FindAll(data => data.hoverObject is TileBase).Count == sheet.Values.Count)
+            if (sheet.Values.ToList().FindAll(obj => obj is TileBase).Count == sheet.Values.Count)
             {
-                foreach (var item in sheet.Values)
+                foreach (KeyValuePair<Vector2Int, Object> item in sheet)
                 {
-                    result.Add(item.hoverObject as TileBase);
+                    result.Add(item.Key, item.Value as TileBase);
                 }
                 return result;
             }
@@ -352,8 +281,6 @@ namespace UnityEditor.Tilemaps
             UserTileCreationMode userTileCreationMode = UserTileCreationMode.Overwrite;
             string path = "";
             bool multipleTiles = sheet.Count > 1;
-            int i = 0;
-            HashSet<String> uniqueNames = new HashSet<string>();
             if (multipleTiles)
             {
                 bool userInterventionRequired = false;
@@ -363,15 +290,9 @@ namespace UnityEditor.Tilemaps
                 // Check if this will overwrite any existing assets
                 foreach (var item in sheet.Values)
                 {
-                    if (item.hoverObject is Sprite sprite)
+                    if (item is Sprite)
                     {
-                        var name = sprite.name;
-                        if (String.IsNullOrEmpty(name) || uniqueNames.Contains(name))
-                        {
-                            name = GenerateUniqueNameForNamelessSprite(sprite, uniqueNames, ref i);
-                        }
-                        uniqueNames.Add(name);
-                        var tilePath = FileUtil.CombinePaths(path, String.Format("{0}.{1}", name, k_TileExtension));
+                        var tilePath = FileUtil.CombinePaths(path, String.Format("{0}.{1}", item.name, k_TileExtension));
                         if (File.Exists(tilePath))
                         {
                             userInterventionRequired = true;
@@ -406,15 +327,13 @@ namespace UnityEditor.Tilemaps
             else
             {
                 // Do not check if this will overwrite new tile as user has explicitly selected the file to save to
-                path = EditorUtility.SaveFilePanelInProject("Generate new tile", sheet.Values.First().hoverObject.name, k_TileExtension, "Generate new tile", defaultPath);
+                path = EditorUtility.SaveFilePanelInProject("Generate new tile", sheet.Values.First().name, k_TileExtension, "Generate new tile", defaultPath);
             }
-            TileDragAndDropManager.SetUserTileAssetPath(path);
 
             if (string.IsNullOrEmpty(path))
                 return result;
 
-            i = 0;
-            uniqueNames.Clear();
+            int i = 0;
             EditorUtility.DisplayProgressBar("Generating Tile Assets (" + i + "/" + sheet.Count + ")", "Generating tiles", 0f);
 
             try
@@ -423,25 +342,18 @@ namespace UnityEditor.Tilemaps
                 if (createTileMethod == null)
                     return null;
 
-                foreach (KeyValuePair<Vector2Int, TileDragAndDropHoverData> item in sheet)
+                foreach (KeyValuePair<Vector2Int, Object> item in sheet)
                 {
                     TileBase tile;
                     string tilePath = "";
-                    if (item.Value.hoverObject is Sprite sprite)
+                    if (item.Value is Sprite)
                     {
-                        tile = createTileMethod.Invoke(null, new object[] {sprite}) as TileBase;
+                        tile = createTileMethod.Invoke(null, new object[] { item.Value as Sprite }) as TileBase;
                         if (tile == null)
                             continue;
 
-                        var name = tile.name;
-                        if (String.IsNullOrEmpty(name) || uniqueNames.Contains(name))
-                        {
-                            name = GenerateUniqueNameForNamelessSprite(sprite, uniqueNames, ref i);
-                        }
-                        uniqueNames.Add(name);
-
                         tilePath = multipleTiles
-                            ? FileUtil.CombinePaths(path, String.Format("{0}.{1}", name, k_TileExtension))
+                            ? FileUtil.CombinePaths(path, String.Format("{0}.{1}", tile.name, k_TileExtension))
                             : path;
                         // Case 1216101: Fix path slashes for Windows
                         tilePath = FileUtil.NiceWinPath(tilePath);
@@ -471,10 +383,10 @@ namespace UnityEditor.Tilemaps
                     }
                     else
                     {
-                        tile = item.Value.hoverObject as TileBase;
+                        tile = item.Value as TileBase;
                     }
                     EditorUtility.DisplayProgressBar("Generating Tile Assets (" + i + "/" + sheet.Count + ")", "Generating " + tilePath, (float)i++ / sheet.Count);
-                    result.Add(tile);
+                    result.Add(item.Key, tile);
                 }
             }
             finally

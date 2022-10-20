@@ -145,13 +145,6 @@ namespace UnityEditor.Tilemaps
                     color = Styles.activeColor;
             }
 
-            if (brushTarget != null)
-            {
-                var targetLayout = brushTarget.GetComponent<GridLayout>();
-                if (targetLayout != null)
-                    gridLayout = targetLayout;
-            }
-
             if (position.zMin != 0)
             {
                 var zeroBounds = position;

@@ -16,102 +16,129 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
-{   
+{
     /***VARIABLES***/
     #region GameManager Singleton
     static private GameManager gm; // reference to Game Manager
-    static public GameManager GM  { get {   return gm;  }   }//public access to Game manager
+    static public GameManager GM { get { return gm; } }//public access to Game manager
 
-    void CheckGameManagerIsInScene(){
-        if (gm == null){
+    void CheckGameManagerIsInScene() {
+        if (gm == null) {
             gm = this;
-        }else{
+        } else {
             Destroy(this.gameObject);
         }//end if else
         DontDestroyOnLoad(this); //Do not destroy the game manager when new scene is loaded
     }//end CheckGameManagerIsInScene()
-    
+
     #endregion
 
-[Header("General Settings")]
-public string gameTitle = "Wake Up RPG";
-public string gameCredits = "Made by: THE GANG";
-public string copywriteDate = "Copyright " + thisDate;
+    [Header("General Settings")]
+    public string gameTitle = "Wake Up RPG";
+    public string gameCredits = "Made by: THE GANG";
+    public string copywriteDate = "Copyright " + thisDate;
 
-[Header("Game Settings")]
-[Header("Scene Settings")]
-[Tooltip("Name of start scene")]
-public string startString;
+    [Header("Game Settings")]
+    [Header("Scene Settings")]
+    [Tooltip("Name of start scene")]
+    public string startString;
 
-[Tooltip("Name of end Scene")]
-public string endScene;
+    [Tooltip("Name of end Scene")]
+    public string endScene;
 
-[Tooltip("Count and name of each scene")]
-public string[] gameLevels;
-private int gameLevelsCount;
-[SerializeField]private bool nextLevel = false;//test for next level
+    [Tooltip("Count and name of each scene")]
+    public string[] gameLevels;
+    private int gameLevelsCount;
+    [SerializeField] private bool nextLevel = false;//test for next level
 
-public static int currentScene = 0; //the current level id
+    public static int currentScene = 0; //the current level id
 
-[HideInInspector] public enum gameStates {Idle,Narration,Playing,StartScreen,LevelWin,LevelLose,LevelTimeOut,GameWin};//enum of game states
-[HideInInspector] public static gameStates gameState = gameStates.StartScreen; //curent gamestate
-[HideInInspector] public static Stopwatch timer = new Stopwatch();
-private static string thisDate = System.DateTime.Now.ToString("yyyy"); //todays date as string
+    [HideInInspector] public enum gameStates { Idle, Narration, Playing, StartScreen, LevelWin, LevelLose, LevelTimeOut, GameWin };//enum of game states
+    [HideInInspector] public static gameStates gameState = gameStates.StartScreen; //curent gamestate
+    [HideInInspector] public static Stopwatch timer = new Stopwatch();
+    private static string thisDate = System.DateTime.Now.ToString("yyyy"); //todays date as string
 
+    [Tooltip("Alarm Range")]
+    DateTime setTimeStart;
+    DateTime setTimeEnd;
+    //enum DateTime range = {inRange, outRange;}
+    public TimeSpan timeStart; //set the players wake up time
+    //public TimeSpan timeEnd = timeStart + 15; //gives the player 15 minutes
+    public Boolean validTime;
 
-/***Methods***/
+    /***Methods***/
     void Awake(){
-    CheckGameManagerIsInScene();
-    currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        CheckGameManagerIsInScene();
+        currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
     }//end Awake()
 
-void Update(){
-    UnityEngine.Debug.Log(gameState);
-    if(Input.GetKey("escape")){ExitGame();} //esc key to exit game
+    void Update(){
+        UnityEngine.Debug.Log(gameState);
+        if(Input.GetKey("escape")){ExitGame();} //esc key to exit game
 
-    if(nextLevel){NextLevel();} // move to next level 
-    if (gameState == gameStates.LevelWin){
-            //Invoke("NextLevel", 5);
-            //gameState = gameStates.Idle;
-    }//end if else()
-}//end Update
+        if(nextLevel){NextLevel();} // move to next level 
+        if (gameState == gameStates.LevelWin){
+                //Invoke("NextLevel", 5);
+                //gameState = gameStates.Idle;
+        }//end if else()
+        if (System.DateTime.Now.Hour == setTimeStart.Hour){//created by Brennan Gillespie
+                                                           //will countinuously start the game
+                                                           //set up some variable to see if game is started
+                                                           //also rework to give room for error
+                                                           //in my opioun should give 15 to 30 min to start
+                                                           //once started while the segment itself is short
+                                                           //there should be no timer
+                                                           //StartGame();
+            validTime = true;
+        }
+        else //(System.DateTime.Now == setTimeEnd) //
+        {
+            validTime = false;
+            //ExitGame();
+        }
+        if (validTime)
+        {
+            //startGame();
+        }
 
-public void StartGame(){
-    gameLevelsCount = 0;
-    gameState = gameStates.Playing;//playing game state
-    timer = Stopwatch.StartNew();
-    SceneManager.LoadScene(gameLevels[gameLevelsCount]); //load first level
+    }//end Update
 
-}//end StartGame();
+    public void StartGame(){
+        gameLevelsCount = 0;
+        gameState = gameStates.Playing;//playing game state
+        timer = Stopwatch.StartNew();
+        SceneManager.LoadScene(gameLevels[gameLevelsCount]); //load first level
 
-public void ExitGame(){
-    Application.Quit();
-    UnityEngine.Debug.Log("Exited Game");
-}//end ExitGame
+    }//end StartGame();
 
-public void GameEnd(){
-    gameState = gameStates.GameWin;//game end state
-    timer.Stop();
-    SceneManager.LoadScene(endScene);
-    UnityEngine.Debug.Log("Game End Scene");
-}//end GameEnd()
+    public void ExitGame(){
+        Application.Quit();
+        UnityEngine.Debug.Log("Exited Game");
+    }//end ExitGame
 
-public void NextLevel(){
-    UnityEngine.Debug.Log("level complete");
-    nextLevel = false;
-    if(gameLevelsCount < gameLevels.Length-1){
-        gameLevelsCount++;
-        SceneManager.LoadScene(gameLevels[gameLevelsCount]);
-        gameState = gameStates.Playing;
-        timer.Start();
-    }else{
-        GameEnd();
-    }//end if else
-}//End NextLevel()
+    public void GameEnd(){
+        gameState = gameStates.GameWin;//game end state
+        timer.Stop();
+        SceneManager.LoadScene(endScene);
+        UnityEngine.Debug.Log("Game End Scene");
+    }//end GameEnd()
 
-public void StartScreen(){
-    SceneManager.LoadScene(startString);
-    gameState=gameStates.StartScreen;
-}//end StartScreen()
+    public void NextLevel(){
+        UnityEngine.Debug.Log("level complete");
+        nextLevel = false;
+        if(gameLevelsCount < gameLevels.Length-1){
+            gameLevelsCount++;
+            SceneManager.LoadScene(gameLevels[gameLevelsCount]);
+            gameState = gameStates.Playing;
+            timer.Start();
+        }else{
+            GameEnd();
+        }//end if else
+    }//End NextLevel()
+
+    public void StartScreen(){
+        SceneManager.LoadScene(startString);
+        gameState=gameStates.StartScreen;
+    }//end StartScreen()
 
 }

@@ -202,20 +202,11 @@ namespace UnityEditor.Tilemaps
         internal static Vector3 CalculateAutoCellSize(Grid grid, Vector3 defaultValue)
         {
             Tilemap[] tilemaps = grid.GetComponentsInChildren<Tilemap>();
-            Sprite[] sprites = null;
-            var maxSize = Vector2.negativeInfinity;
-            var minSize = Vector2.positiveInfinity;
-
-            // Get minimum and maximum sizes for Sprites
             foreach (var tilemap in tilemaps)
             {
-                var spriteCount = tilemap.GetUsedSpritesCount();
-                if (sprites == null || sprites.Length < spriteCount)
-                    sprites = new Sprite[spriteCount];
-                tilemap.GetUsedSpritesNonAlloc(sprites);
-                for (int i = 0; i < spriteCount; ++i)
+                foreach (var position in tilemap.cellBounds.allPositionsWithin)
                 {
-                    Sprite sprite = sprites[i];
+                    Sprite sprite = tilemap.GetSprite(position);
                     if (sprite != null)
                     {
                         var cellSize = new Vector3(sprite.rect.width, sprite.rect.height, 0f) / sprite.pixelsPerUnit;
@@ -225,41 +216,11 @@ namespace UnityEditor.Tilemaps
                             cellSize.x = cellSize.y;
                             cellSize.y = swap;
                         }
-                        minSize.x = Mathf.Min(cellSize.x, minSize.x);
-                        minSize.y = Mathf.Min(cellSize.y, minSize.y);
-                        maxSize.x = Mathf.Max(cellSize.x, maxSize.x);
-                        maxSize.y = Mathf.Max(cellSize.y, maxSize.y);
+                        return cellSize;
                     }
                 }
             }
-            // Validate that Sprites are in multiples of sizes
-            foreach (var tilemap in tilemaps)
-            {
-                var spriteCount = tilemap.GetUsedSpritesCount();
-                if (sprites == null || sprites.Length < spriteCount)
-                    sprites = new Sprite[spriteCount];
-                tilemap.GetUsedSpritesNonAlloc(sprites);
-                for (int i = 0; i < spriteCount; ++i)
-                {
-                    Sprite sprite = sprites[i];
-                    if (sprite != null)
-                    {
-                        var cellSize = new Vector3(sprite.rect.width, sprite.rect.height, 0f) / sprite.pixelsPerUnit;
-                        if (tilemap.cellSwizzle == GridLayout.CellSwizzle.YXZ)
-                        {
-                            var swap = cellSize.x;
-                            cellSize.x = cellSize.y;
-                            cellSize.y = swap;
-                        }
-                        // Return maximum size if sprites are not multiples of the smallest size
-                        if (cellSize.x % minSize.x > 0)
-                            return maxSize.x * maxSize.y <= 0f ? defaultValue : new Vector3(maxSize.x, maxSize.y, 0f);
-                        if (cellSize.y % minSize.y > 0)
-                            return maxSize.x * maxSize.y <= 0f ? defaultValue : new Vector3(maxSize.x, maxSize.y, 0f);
-                    }
-                }
-            }
-            return minSize.x * minSize.y <= 0f || minSize == Vector2.positiveInfinity ? defaultValue : new Vector3(minSize.x, minSize.y, 0f);
+            return defaultValue;
         }
     }
 }

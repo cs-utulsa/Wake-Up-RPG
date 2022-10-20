@@ -1,7 +1,7 @@
 using System;
-using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 using UnityEditorInternal;
 
@@ -9,86 +9,32 @@ namespace UnityEditor.U2D.Sprites
 {
     internal class SpriteRectModel : ScriptableObject, ISerializationCallbackReceiver
     {
-        [Serializable]
-        struct StringGUID
+        [SerializeField]
+        private List<SpriteRect> m_SpriteRects;
+        private HashSet<string> m_Names;
+        private HashSet<long> m_InternalIds;
+
+        private IReadOnlyList<SpriteRect> m_SpriteReadOnlyList;
+        public IReadOnlyList<SpriteRect> spriteRects
         {
-            [SerializeField]
-            string m_StringGUID;
-
-            public StringGUID(GUID guid)
-            {
-                m_StringGUID = guid.ToString();
-            }
-
-            public static implicit operator GUID(StringGUID d) => new GUID(d.m_StringGUID);
-            public static implicit operator StringGUID(GUID d) => new StringGUID(d);
+            get { return m_SpriteReadOnlyList; }
         }
-
-        [Serializable]
-        class StringGUIDList : List<StringGUID>, IReadOnlyList<GUID>
-        {
-            GUID IReadOnlyList<GUID>.this[int index]
-            {
-                get => this[index];
-            }
-
-            IEnumerator<GUID> IEnumerable<GUID>.GetEnumerator()
-            {
-                // Not used for now
-                throw new NotImplementedException();
-            }
-        }
-
-        /// <summary>
-        /// List of all SpriteRects
-        /// </summary>
-        [SerializeField] private List<SpriteRect> m_SpriteRects;
-        /// <summary>
-        /// List of all names in the Name-FileId Table
-        /// </summary>
-        [SerializeField] private List<string> m_SpriteNames;
-        /// <summary>
-        /// List of all FileIds in the Name-FileId Table
-        /// </summary>
-        [SerializeField] private StringGUIDList m_SpriteFileIds;
-        /// <summary>
-        /// HashSet of all names currently in use by SpriteRects
-        /// </summary>
-        private HashSet<string> m_NamesInUse;
-        private HashSet<GUID> m_InternalIdsInUse;
-
-
-        public IReadOnlyList<SpriteRect> spriteRects => m_SpriteRects;
-        public IReadOnlyList<string> spriteNames => m_SpriteNames;
-        public IReadOnlyList<GUID> spriteFileIds => m_SpriteFileIds;
 
         private SpriteRectModel()
         {
-            m_SpriteNames = new List<string>();
-            m_SpriteFileIds = new StringGUIDList();
-            Clear();
+            m_Names = new HashSet<string>();
+            m_InternalIds = new HashSet<long>();
         }
 
         public void SetSpriteRects(List<SpriteRect> newSpriteRects)
         {
             m_SpriteRects = newSpriteRects;
-
-            m_NamesInUse = new HashSet<string>();
-            m_InternalIdsInUse = new HashSet<GUID>();
-            for (var i = 0; i < m_SpriteRects.Count; ++i)
+            foreach (var spriteRect in m_SpriteRects)
             {
-                m_NamesInUse.Add(m_SpriteRects[i].name);
-                m_InternalIdsInUse.Add(m_SpriteRects[i].spriteID);
+                m_Names.Add(spriteRect.name);
+                m_InternalIds.Add(spriteRect.internalID);
             }
-        }
-
-        public void SetNameFileIdPairs(IEnumerable<SpriteNameFileIdPair> pairs)
-        {
-            m_SpriteNames.Clear();
-            m_SpriteFileIds.Clear();
-
-            foreach (var pair in pairs)
-                AddNameFileIdPair(pair.name, pair.GetFileGUID());
+            m_SpriteReadOnlyList = m_SpriteRects.AsReadOnly();
         }
 
         public int FindIndex(Predicate<SpriteRect> match)
@@ -106,77 +52,42 @@ namespace UnityEditor.U2D.Sprites
         public void Clear()
         {
             m_SpriteRects = new List<SpriteRect>();
-            m_NamesInUse = new HashSet<string>();
-            m_InternalIdsInUse = new HashSet<GUID>();
+            m_InternalIds.Clear();
+            m_Names.Clear();
+            m_SpriteReadOnlyList = m_SpriteRects.AsReadOnly();
         }
 
-        public bool Add(SpriteRect spriteRect, bool shouldReplaceInTable = false)
+        public bool Add(SpriteRect spriteRect)
         {
-            if (spriteRect.spriteID.Empty())
-            {
-                spriteRect.spriteID = GUID.Generate();
-            }
-            else
-            {
-                if (IsInternalIdInUsed(spriteRect.spriteID))
-                    return false;
-            }
-
-            if (shouldReplaceInTable)
-            {
-                // replace id from sprite to file id table
-                if (!UpdateIdInNameIdPair(spriteRect.name, spriteRect.spriteID))
-                {
-                    // add it into file id table if update wasn't successful i.e. it doesn't exist yet
-                    AddNameFileIdPair(spriteRect.name, spriteRect.spriteID);
-                }
-            }
-            else
-            {
-                // Since we are not replacing the file id table,
-                // look for any existing id and set it to the SpriteRect
-                var index = m_SpriteNames.FindIndex(x => x == spriteRect.name);
-                if (index >= 0)
-                {
-                    if (IsInternalIdInUsed(m_SpriteFileIds[index]))
-                        return false;
-                    spriteRect.spriteID = m_SpriteFileIds[index];
-                }
-                else
-                    AddNameFileIdPair(spriteRect.name, spriteRect.spriteID);
-            }
-
+            if (m_Names.Contains(spriteRect.name))
+                return false;
+            if (spriteRect.internalID != 0 && m_InternalIds.Contains(spriteRect.internalID))
+                return false;
+            m_Names.Add(spriteRect.name);
+            if (spriteRect.internalID != 0)
+                m_InternalIds.Add(spriteRect.internalID);
             m_SpriteRects.Add(spriteRect);
-            m_NamesInUse.Add(spriteRect.name);
-            m_InternalIdsInUse.Add(spriteRect.spriteID);
+            m_SpriteReadOnlyList = m_SpriteRects.AsReadOnly();
             return true;
         }
 
         public void Remove(SpriteRect spriteRect)
         {
+            m_Names.Remove(spriteRect.name);
+            if (spriteRect.internalID != 0)
+                m_InternalIds.Remove(spriteRect.internalID);
             m_SpriteRects.Remove(spriteRect);
-            m_NamesInUse.Remove(spriteRect.name);
-            m_InternalIdsInUse.Remove(spriteRect.spriteID);
+            m_SpriteReadOnlyList = m_SpriteRects.AsReadOnly();
         }
 
-        /// <summary>
-        /// Checks whether or not the name is currently in use by any of the SpriteRects in the texture.
-        /// </summary>
-        /// <param name="rectName">The name to check for</param>
-        /// <returns>True if the name is currently in use</returns>
-        public bool IsNameUsed(string rectName)
+        public bool HasName(string rectName)
         {
-            return m_NamesInUse.Contains(rectName);
+            return m_Names.Contains(rectName);
         }
 
-        /// <summary>
-        /// Checks whether or not the id is currently in use by any of the SpriteRects in the texture.
-        /// </summary>
-        /// <param name="rectName">The id to check for</param>
-        /// <returns>True if the name is currently in use</returns>
-        public bool IsInternalIdInUsed(GUID internalId)
+        public bool HasInternalID(long internalID)
         {
-            return m_InternalIdsInUse.Contains(internalId);
+            return m_InternalIds.Contains(internalID);
         }
 
         public List<SpriteRect> GetSpriteRects()
@@ -184,58 +95,11 @@ namespace UnityEditor.U2D.Sprites
             return m_SpriteRects;
         }
 
-        public bool Rename(string oldName, string newName, GUID fileId)
+        public void Rename(string oldName, string newName)
         {
-            if (!IsNameUsed(oldName))
-                return false;
-            if (IsNameUsed(newName))
-                return false;
-
-            var index = m_SpriteNames.FindIndex(x => x == oldName);
-            if (index >= 0)
-            {
-                m_SpriteNames.RemoveAt(index);
-                m_SpriteFileIds.RemoveAt(index);
-            }
-
-            index = m_SpriteNames.FindIndex(x => x == newName);
-            if (index >= 0)
-                m_SpriteFileIds[index] = fileId;
-            else
-                AddNameFileIdPair(newName, fileId);
-
-            m_NamesInUse.Remove(oldName);
-            m_NamesInUse.Add(newName);
-            return true;
-        }
-
-        void AddNameFileIdPair(string spriteName, GUID fileId)
-        {
-            m_SpriteNames.Add(spriteName);
-            m_SpriteFileIds.Add(fileId);
-        }
-
-        bool UpdateIdInNameIdPair(string spriteName, GUID newFileId)
-        {
-            var index = m_SpriteNames.FindIndex(x => x == spriteName);
-            if (index >= 0)
-            {
-                m_SpriteFileIds[index] = newFileId;
-                return true;
-            }
-
-            return false;
-        }
-
-        public void ClearUnusedFileID()
-        {
-            m_SpriteNames.Clear();
-            m_SpriteFileIds.Clear();
-            foreach (var sprite in m_SpriteRects)
-            {
-                m_SpriteNames.Add(sprite.name);
-                m_SpriteFileIds.Add(sprite.spriteID);
-            }
+            m_Names.Remove(oldName);
+            m_Names.Add(newName);
+            m_SpriteReadOnlyList = m_SpriteRects.AsReadOnly();
         }
 
         void ISerializationCallbackReceiver.OnBeforeSerialize()
@@ -243,33 +107,24 @@ namespace UnityEditor.U2D.Sprites
 
         void ISerializationCallbackReceiver.OnAfterDeserialize()
         {
-            SetSpriteRects(m_SpriteRects);
-        }
-    }
-
-    internal class OutlineSpriteRect : SpriteRect
-    {
-        public List<Vector2[]> outlines;
-
-        public OutlineSpriteRect(SpriteRect rect)
-        {
-            this.name = rect.name;
-            this.originalName = rect.originalName;
-            this.pivot = rect.pivot;
-            this.alignment = rect.alignment;
-            this.border = rect.border;
-            this.rect = rect.rect;
-            this.spriteID = rect.spriteID;
-            outlines = new List<Vector2[]>();
+            m_SpriteReadOnlyList = m_SpriteRects.AsReadOnly();
+            m_Names.Clear();
+            m_InternalIds.Clear();
+            foreach (var sprite in m_SpriteReadOnlyList)
+            {
+                m_Names.Add(sprite.name);
+                m_InternalIds.Add(sprite.internalID);
+            }
         }
     }
 
     internal abstract partial class SpriteFrameModuleBase : SpriteEditorModuleBase
     {
+        protected static UnityType spriteType = UnityType.FindTypeByName("Sprite");
+
         protected SpriteRectModel m_RectsCache;
         protected ITextureDataProvider m_TextureDataProvider;
         protected ISpriteEditorDataProvider m_SpriteDataProvider;
-        protected ISpriteNameFileIdDataProvider m_NameFileIdDataProvider;
         string m_ModuleName;
 
         internal enum PivotUnitMode
@@ -295,29 +150,18 @@ namespace UnityEditor.U2D.Sprites
         {
             spriteImportMode = SpriteFrameModule.GetSpriteImportMode(spriteEditor.GetDataProvider<ISpriteEditorDataProvider>());
             m_TextureDataProvider = spriteEditor.GetDataProvider<ITextureDataProvider>();
-            m_NameFileIdDataProvider = spriteEditor.GetDataProvider<ISpriteNameFileIdDataProvider>();
             m_SpriteDataProvider = spriteEditor.GetDataProvider<ISpriteEditorDataProvider>();
-
             int width, height;
             m_TextureDataProvider.GetTextureActualWidthAndHeight(out width, out height);
             textureActualWidth = width;
             textureActualHeight = height;
-
             m_RectsCache = ScriptableObject.CreateInstance<SpriteRectModel>();
             m_RectsCache.hideFlags = HideFlags.HideAndDontSave;
-
             var spriteList = m_SpriteDataProvider.GetSpriteRects().ToList();
             m_RectsCache.SetSpriteRects(spriteList);
             spriteEditor.spriteRects = spriteList;
-
-            if (m_NameFileIdDataProvider == null)
-                m_NameFileIdDataProvider = new DefaultSpriteNameFileIdDataProvider(spriteList);
-            var nameFileIdPairs = m_NameFileIdDataProvider.GetNameFileIdPairs();
-            m_RectsCache.SetNameFileIdPairs(nameFileIdPairs);
-
             if (spriteEditor.selectedSpriteRect != null)
                 spriteEditor.selectedSpriteRect = m_RectsCache.spriteRects.FirstOrDefault(x => x.spriteID == spriteEditor.selectedSpriteRect.spriteID);
-
             AddMainUI(spriteEditor.GetMainVisualContainer());
             undoSystem.RegisterUndoCallback(UndoCallback);
         }
@@ -338,33 +182,47 @@ namespace UnityEditor.U2D.Sprites
         {
             if (apply)
             {
-                var array = m_RectsCache != null ? m_RectsCache.spriteRects.ToArray() : null;
-                m_SpriteDataProvider.SetSpriteRects(array);
-
-                var spriteNames = m_RectsCache?.spriteNames;
-                var spriteFileIds = m_RectsCache?.spriteFileIds;
-                if (spriteNames != null && spriteFileIds != null)
+                if (containsMultipleSprites)
                 {
-                    var pairList = new List<SpriteNameFileIdPair>(spriteNames.Count);
-                    for (var i = 0; i < spriteNames.Count; ++i)
-                        pairList.Add(new SpriteNameFileIdPair(spriteNames[i], spriteFileIds[i]));
-                    m_NameFileIdDataProvider.SetNameFileIdPairs(pairList.ToArray());
-                }
+                    var oldNames = new List<string>();
+                    var newNames = new List<string>();
+                    var ids = new List<long>();
+                    var names = new List<string>();
 
-                var outlineDataProvider = m_SpriteDataProvider.GetDataProvider<ISpriteOutlineDataProvider>();
-                var physicsDataProvider = m_SpriteDataProvider.GetDataProvider<ISpritePhysicsOutlineDataProvider>();
-                foreach (var rect in array)
-                {
-                    if (rect is OutlineSpriteRect outlineRect)
+                    foreach (var spriteRect in m_RectsCache.spriteRects)
                     {
-                        if (outlineRect.outlines.Count > 0)
+                        if (string.IsNullOrEmpty(spriteRect.name))
+                            spriteRect.name = "Empty";
+
+                        if (!string.IsNullOrEmpty(spriteRect.originalName))
                         {
-                            outlineDataProvider.SetOutlines(outlineRect.spriteID, outlineRect.outlines);
-                            physicsDataProvider.SetOutlines(outlineRect.spriteID, outlineRect.outlines);
+                            oldNames.Add(spriteRect.originalName);
+                            newNames.Add(spriteRect.name);
                         }
+
+                        if (spriteRect.m_RegisterInternalID)
+                        {
+                            ids.Add(spriteRect.internalID);
+                            names.Add(spriteRect.name);
+                        }
+                        spriteRect.m_RegisterInternalID = false;
+                    }
+                    var so = new SerializedObject(m_SpriteDataProvider.targetObject);
+                    if (so.isValid && ids.Count > 0)
+                    {
+                        ImportSettingInternalID.RegisterInternalID(so, spriteType, ids, names);
+                        so.ApplyModifiedPropertiesWithoutUndo();
+                    }
+
+                    AssetImporter assetImporter = m_SpriteDataProvider.targetObject as AssetImporter;
+                    if (oldNames.Count > 0 && assetImporter != null)
+                    {
+                        assetImporter.RenameSubAssets(spriteType.persistentTypeID, oldNames.ToArray(), newNames.ToArray());
+                        so.ApplyModifiedPropertiesWithoutUndo();
                     }
                 }
-
+                var array = m_RectsCache != null ? m_RectsCache.spriteRects.ToArray() : null;
+                m_SpriteDataProvider.SetSpriteRects(array);
                 if (m_RectsCache != null)
                     undoSystem.ClearUndo(m_RectsCache);
             }
@@ -373,13 +231,8 @@ namespace UnityEditor.U2D.Sprites
                 if (m_RectsCache != null)
                 {
                     undoSystem.ClearUndo(m_RectsCache);
-
                     var spriteList = m_SpriteDataProvider.GetSpriteRects().ToList();
                     m_RectsCache.SetSpriteRects(spriteList);
-
-                    var nameFileIdPairs = m_NameFileIdDataProvider.GetNameFileIdPairs();
-                    m_RectsCache.SetNameFileIdPairs(nameFileIdPairs);
-
                     spriteEditor.spriteRects = spriteList;
                     if (spriteEditor.selectedSpriteRect != null)
                         spriteEditor.selectedSpriteRect = m_RectsCache.spriteRects.FirstOrDefault(x => x.spriteID == spriteEditor.selectedSpriteRect.spriteID);
@@ -490,8 +343,9 @@ namespace UnityEditor.U2D.Sprites
             {
                 if (selected.name == value)
                     return;
-                if (m_RectsCache.IsNameUsed(value))
+                if (m_RectsCache.HasName(value))
                     return;
+
                 undoSystem.RegisterCompleteObjectUndo(m_RectsCache, "Change Sprite Name");
                 spriteEditor.SetDataModified();
 
@@ -506,9 +360,8 @@ namespace UnityEditor.U2D.Sprites
                 if (string.IsNullOrEmpty(newName))
                     newName = oldName;
 
-                // Did the rename succeed?
-                if (m_RectsCache.Rename(oldName, newName, selected.spriteID))
-                    selected.name = newName;
+                m_RectsCache.Rename(oldName, newName);
+                selected.name = newName;
             }
         }
 
