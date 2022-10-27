@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/NarrationSample.unity
+- path: Assets/Scenes/Day1M inigame.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
