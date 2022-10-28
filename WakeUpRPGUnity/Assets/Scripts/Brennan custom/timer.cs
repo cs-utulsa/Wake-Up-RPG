@@ -6,9 +6,9 @@ using System;
 
 public class timer : MonoBehaviour
 {
-    [SerializeFeild] private TextMeshProUGUI curTimeText;
-    [SerializeFeild] private TMP_InputField hoursIn, minutesIn;
-    [SerializeFeild] private TMP_Dropdown dropDown;
+    [SerializeField] private TextMeshProUGUI curTimeText;
+    [SerializeField] private TMP_InputField hoursIn, minutesIn;
+    [SerializeField] private TMP_Dropdown dropDown;
 
     private bool isAlarmSet = false;
     private DateTime alarmTime = DateTime.Today;
@@ -29,8 +29,8 @@ public class timer : MonoBehaviour
         int minutes = DateTime.Now.Minute;
 
         bool isAM = hours < 12;
-
-        curTimeText.text - $"{hours % 12:D2}:{mitutes:D2} {(isAM ? "AM" : "PM")}";//insert line to display current time in UI
+        
+        curTimeText.text = $"{hours % 12:D2}:{minutes:D2} {(isAM ? "AM" : "PM")}";//insert line to display current time in UI
 
         if (isAlarmSet)
         {
@@ -46,7 +46,7 @@ public class timer : MonoBehaviour
 
     void setWindow(int h, int m, int w)
     {
-        tempM = m + w;
+        int tempM = m + w;
         if(tempM >= 60)
         {
             tempM -= 60;

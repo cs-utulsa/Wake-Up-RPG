@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using UnityEngine.Pool;
 
 namespace UnityEngine.UI
 {
-    [AddComponentMenu("UI/Rect Mask 2D", 13)]
+    [AddComponentMenu("UI/Rect Mask 2D", 14)]
     [ExecuteAlways]
     [DisallowMultipleComponent]
     [RequireComponent(typeof(RectTransform))]
@@ -145,8 +146,14 @@ namespace UnityEngine.UI
             m_ClipTargets.Clear();
             m_MaskableTargets.Clear();
             m_Clippers.Clear();
-            ClipperRegistry.Unregister(this);
+            ClipperRegistry.Disable(this);
             MaskUtilities.Notify2DMaskStateChanged(this);
+        }
+
+        protected override void OnDestroy()
+        {
+            ClipperRegistry.Unregister(this);
+            base.OnDestroy();
         }
 
 #if UNITY_EDITOR
