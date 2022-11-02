@@ -3492,7 +3492,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 2D
-  type: 
+  type: asset
   description: 2D Common is a package that contains shared functionalities that are
     used by most of the other 2D packages.
   status: 4
@@ -3538,9 +3538,11 @@ m_ResolvedPackages:
     - 7.0.0
     - 7.0.1
     - 7.0.2
+    - 7.0.3
     - 8.0.0-pre.1
     - 8.0.0-pre.2
     - 8.0.0
+    - 9.0.0-pre.1
     compatible:
     - 6.0.3
     - 6.0.4
@@ -3581,7 +3583,7 @@ m_ResolvedPackages:
     scopes: []
     isDefault: 1
     capabilities: 7
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637817447740000000
   documentationUrl: 
