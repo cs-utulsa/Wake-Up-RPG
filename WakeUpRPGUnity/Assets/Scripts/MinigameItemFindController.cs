@@ -1,12 +1,14 @@
 /***
 * Created by: Aidan Pohl
 * Created: Oct 29, 2022
-* Modified: Oct 30, 2022
+* Modified: November 2, 2022
 * Purpose Manages the minigame rooms and items
 ***/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class MinigameItemFindController : MonoBehaviour
@@ -19,6 +21,7 @@ public class MinigameItemFindController : MonoBehaviour
     public GameObject[] items;
     public bool[] itemCollected;
     public string[] itemDescriptions;
+    public GameObject ExitButton;
 
     // Start is called before the first frame update
     void Awake()
@@ -28,7 +31,7 @@ public class MinigameItemFindController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {Debug.Log(Input.mousePosition.ToString());
+    {//Debug.Log(Input.mousePosition.ToString());
     }
 
     public void ChangeRoom(int newroom){
@@ -42,11 +45,17 @@ public class MinigameItemFindController : MonoBehaviour
         //ItemPopup(itemNum);
         items[itemNum].transform.Find("ItemGot").gameObject.SetActive(true);
         itemCollected[itemNum] = true;
+        if (InventoryCheck()){ExitButton.GetComponent<Button>().interactable = true;}
     } 
 
-    public void EndMinigame(){
-    }
 
+    public void EndMinigame(){
+        if(InventoryCheck()){
+            GM.minigameResult = true;
+            
+        }else{ GM.minigameResult = false;}
+        SceneManager.LoadScene("Day1EndNarr");
+    }
     bool InventoryCheck(){
         bool allItems = true;
         foreach(bool gotItem in itemCollected){
