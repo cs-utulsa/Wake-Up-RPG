@@ -15,7 +15,7 @@ public class MinigameItemFindController : MonoBehaviour
 {   
     static private MinigameItemFindController mifc; // reference to Self
     static public MinigameItemFindController MIFC  { get {   return mifc;  }   }//public access
-    GameManager GM = GameManager.GM;
+    GameManager GM;
     //public string narrScene;
     public GameObject[] rooms;
     public GameObject[] items;
@@ -29,15 +29,45 @@ public class MinigameItemFindController : MonoBehaviour
     public GameObject winText;
     public GameObject loseText;
 
+    public float gameDuration = 60.0f;
+    float gameTime = 0.0f;
+    public GameObject timerGO; 
+    float startingHeight = 386f;
+    float endheight = 513f;
+
+    bool gameEnded = false;
+    bool minigameResult;
+
     // Start is called before the first frame update
     void Awake()
     {
+        GM = GameManager.GM;
         mifc = this;
+        Vector3 sunHeight = timerGO.transform.position;
+        sunHeight.y = startingHeight;
+        timerGO.transform.localPosition = sunHeight;
+        gameTime = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {//Debug.Log(Input.mousePosition.ToString());
+    Debug.Log(gameTime);
+    //while(!gameEnded){
+        float lerpH = Mathf.Lerp(startingHeight,endheight,gameTime/gameDuration);
+        Debug.Log(lerpH+"Lerp");
+        Vector3 sunHeight = timerGO.transform.position;
+        
+        sunHeight.y = Mathf.Min(lerpH,endheight);
+        Debug.Log(sunHeight);
+        timerGO.transform.localPosition = sunHeight;
+        gameTime += Time.deltaTime;
+        if(gameTime > gameDuration){
+            gameEnded = true;
+            EndMinigame();
+        }
+   // }
+
     }
 
     public void ChangeRoom(int newroom){
@@ -57,13 +87,12 @@ public class MinigameItemFindController : MonoBehaviour
 
     public void EndMinigame(){
         if(InventoryCheck()){
-            GM.minigameResult = true;
-            
-        }else{ GM.minigameResult = false;}
+            minigameResult = true;
+        }else{ minigameResult = false;}
 
         minigameCanvas.SetActive(false);
-        endDayCanvas.SetActive(false);
-        if(GM.minigameResult){
+        endDayCanvas.SetActive(true);
+        if(minigameResult){
             winText.SetActive(true);
         }else{
             loseText.SetActive(true);

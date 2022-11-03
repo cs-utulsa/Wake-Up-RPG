@@ -22,7 +22,8 @@ public class NarrationScene : MonoBehaviour
     public string[] TimeOutText;
 
     int [] sIndexes = {0,0,0,0};
-    public Text NarrationBox;
+
+    public Text narrationBox;
 
     public GameObject arcade;
     public GameObject library;
@@ -36,6 +37,7 @@ public class NarrationScene : MonoBehaviour
 
     GameManager gm;
     // Start is called before the first frame update
+
     void Start()
     {
         gm = GameManager.GM;
@@ -106,12 +108,10 @@ public class NarrationScene : MonoBehaviour
             calander.SetActive(true);
         }
         //go to mini game
-
-        string narration = NarrationBox.text;
-        narration = //narration+"\n"+
-            StartingText[sIndexes[type]];
-        NarrationBox.text = narration;
+        if(sIndexes[type] < StartingText.Length){
+        narrationBox.text = StartingText[sIndexes[type]];
         sIndexes[type]++;
+    }
 
     }
 }
