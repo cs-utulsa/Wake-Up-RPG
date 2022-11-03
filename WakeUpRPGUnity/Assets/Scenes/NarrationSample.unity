@@ -222,7 +222,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 892399320}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -242,14 +242,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5bed456c50c1c0f429f38fd9ee3bbe31, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -299,13 +299,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 892399320}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13016666, y: 0.32765627}
   m_AnchorMax: {x: 0.8337778, y: 0.72800004}
-  m_AnchoredPosition: {x: 13.2799835, y: -36.34}
-  m_SizeDelta: {x: 214, y: 769}
-  m_Pivot: {x: 0.5, y: 0.49999994}
+  m_AnchoredPosition: {x: 13.2799835, y: -473.8832}
+  m_SizeDelta: {x: 214, y: -106.0865}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &500183961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,18 +384,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Test
+  m_Text: Place-holder
 --- !u!222 &500183963
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -434,11 +434,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingText:
-  - Hey
-  - Look Its Text!
-  - Ready For a Game?
-  - Its Gonna Happen...
-  - Right after this message!
+  - 'Narrator: '
+  - Over the past 5 days, the world has been frozen in time...
+  - 'the beloved arcade, not a lot of activity after it was closed for repairs, the
+    abandoned fields '
+  - 'Basically a junkyard with how littered it is with mechanical parts, wooded areas '
+  - 'Spooky and unknown but always could find something interesting there, Library '
+  - A hub for architectural designs
+  - even animals are frozen in this new world
+  - A hub for architectural designs
+  - 
+  - 'Player: '
+  - "When my professor introduced us to the art of Pompeii, I couldn\u2019t get it
+    out of my head what those people must have felt. I imagine screaming, praying,
+    crying before the world as they knew it was engulfed. "
+  - "I\u2019ve never been much of a history person.  "
+  - "Couldn\u2019t get the dates and names in my head straight for the life of me.
+    Mostly that story is what could keep me awake enough at 8 am to pass that class."
+  - 'Ironic that the ash that doomed them also kept their art and houses pristine
+    enough for us to study. '
+  - 'At least in my normal engineering classes I can mash numbers together instead
+    of grappling with that stuff before I eat breakfast. '
+  - "But now that I\u2019m in it, what do I do?  "
+  - "Five days in and honestly, it\u2019s a little embarrassing how little I know.
+    I definitely panicked the first few days. Plus, its hard to keep track of how
+    long it\u2019s even been besides when I start to feel tired. "
+  - "The sun at least moves while I\u2019m awake so at least what\u2019s going on
+    is contained to earth. At first it almost felt like some weird time loop. "
+  - Not my finest moment when I threw the vase at the wall to test that but at least
+    it killed that idea when I woke up to the shards still there.
+  - Gotta apologize to my roommate for that one when this all gets fixed. If it gets
+    fixed. hah
+  - "No one seems like they are immune to the time freeze except me, not even the
+    animals outside. The only thing that\u2019s still ticking, funny enough, is my
+    project."
+  - Pulling an all-nighter trying to get this pocket watch fixed and emerging from
+    my room to find the world pretty much ended was a lot.
+  - "What the hell is my life? I\u2019m not even done with this stupid watch."
+  - "I know about magic a decent amount.  After all, I\u2019ve been grinding away
+    at a degree in magical engineering for four years but something like this would
+    stop even my toughest professors in their tracks. "
+  - 
+  - So pretty much magic is a pretty common force in this world. Its more of a feature
+    that is integrated into some technologies. It used to be a whole lot rarer but
+    people in my field have really been trying to revive it.
+  - 
+  - "Building a self-refilling water bottle seems like small potatoes compared to...
+    whatever this is.  Props to the person who caused all this, it sounds like *they*
+    don\u2019t need \"detailed blueprints\" for all their projects. "
+  - "Would I have even known that the world froze if my internet didn\u2019t go out?
+    I nearly threw out the watch when I lost my blueprints for it. "
+  - "Not to sell myself short but I think I\u2019ve been doing okay with handling
+    things. Past few years of college; past couple weeks; and now this nightmare."
+  - "They always said that when you\u2019re in big trouble, stay where you are so
+    people can find and help you. I don\u2019t think that applies here."
+  - 'I need to live in the present *as if there is any other option now* and try
+    to figure things out.  '
+  - "If I don\u2019t leave now, I never will. Even a small step outside is better
+    than nothing. Just think of it as going out to get my computer fixed or going
+    to get some groceries. Maybe it won\u2019t take long at all.... "
+  - 
   SuccessText:
   - GG
   - Ya did it
@@ -564,8 +619,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 500183960}
   - {fileID: 341448097}
+  - {fileID: 500183960}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -574,6 +629,74 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1160305807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1160305809}
+  - component: {fileID: 1160305808}
+  m_Layer: 0
+  m_Name: SceneModule OG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1160305808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160305807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1eca7cb801a944cb6a085d15a4c3d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingText:
+  - Hey
+  - Look Its Text!
+  - Ready For a Game?
+  - Its Gonna Happen...
+  - Right after this message!
+  SuccessText:
+  - GG
+  - Ya did it
+  - Have Good Day
+  FailText:
+  - Uh Oh!
+  - Looks like ya dont goofed
+  - Aw geez sucks to be you
+  - Now get out there and try not to fail at life
+  TimeOutText:
+  - Um... hello?
+  - You awake bud?
+  - Kinda ran out of time there
+  - These games arent all that difficult ya know...
+  - If you were awake you would have gotten it
+  - Just...get out of my sight...
+  NarrationBox: {fileID: 500183962}
+  MinigameSceneName: GameExample
+--- !u!4 &1160305809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160305807}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1369908376
 GameObject:
   m_ObjectHideFlags: 0

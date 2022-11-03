@@ -48,7 +48,8 @@ public class NarrationScene : MonoBehaviour
             GameManager.gameState = GameManager.gameStates.GameWin;
         }
         string narration = NarrationBox.text;
-        narration = narration+"\n"+StartingText[sIndexes[type]];
+        narration = //narration+"\n"+
+            StartingText[sIndexes[type]];
         NarrationBox.text = narration;
         sIndexes[type]++;
 
