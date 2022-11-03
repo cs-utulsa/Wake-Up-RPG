@@ -16,12 +16,18 @@ public class MinigameItemFindController : MonoBehaviour
     static private MinigameItemFindController mifc; // reference to Self
     static public MinigameItemFindController MIFC  { get {   return mifc;  }   }//public access
     GameManager GM = GameManager.GM;
-    public string narrScene;
+    //public string narrScene;
     public GameObject[] rooms;
     public GameObject[] items;
     public bool[] itemCollected;
     public string[] itemDescriptions;
     public GameObject ExitButton;
+
+    public GameObject minigameCanvas;
+    public GameObject endDayCanvas;
+
+    public GameObject winText;
+    public GameObject loseText;
 
     // Start is called before the first frame update
     void Awake()
@@ -54,8 +60,16 @@ public class MinigameItemFindController : MonoBehaviour
             GM.minigameResult = true;
             
         }else{ GM.minigameResult = false;}
-        SceneManager.LoadScene("Day1EndNarr");
+
+        minigameCanvas.SetActive(false);
+        endDayCanvas.SetActive(false);
+        if(GM.minigameResult){
+            winText.SetActive(true);
+        }else{
+            loseText.SetActive(true);
+        }
     }
+
     bool InventoryCheck(){
         bool allItems = true;
         foreach(bool gotItem in itemCollected){
@@ -64,4 +78,7 @@ public class MinigameItemFindController : MonoBehaviour
         }
         return allItems;
     }
+public void EndDay(){
+    SceneManager.LoadScene("EndScene");
+}
 }
