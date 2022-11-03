@@ -57,6 +57,7 @@ public static int currentScene = 0; //the current level id
 [HideInInspector] public static gameStates gameState = gameStates.StartScreen; //curent gamestate
 [HideInInspector] public static Stopwatch timer = new Stopwatch();
 private static string thisDate = System.DateTime.Now.ToString("yyyy"); //todays date as string
+public bool minigameResult = false;
 
 
 /***Methods***/
@@ -66,7 +67,7 @@ private static string thisDate = System.DateTime.Now.ToString("yyyy"); //todays 
     }//end Awake()
 
 void Update(){
-    UnityEngine.Debug.Log(gameState);
+    //UnityEngine.Debug.Log(gameState);
     if(Input.GetKey("escape")){ExitGame();} //esc key to exit game
 
     if(nextLevel){NextLevel();} // move to next level 

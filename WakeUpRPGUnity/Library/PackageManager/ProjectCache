@@ -140,9 +140,12 @@ m_ResolvedPackages:
     - 8.0.2
     - 8.0.3
     - 8.0.4
+    - 8.0.5
     - 9.0.0-pre.1
     - 9.0.0-pre.3
     - 9.0.0
+    - 9.0.1
+    - 10.0.0-pre.1
     compatible:
     - 7.0.6
     - 7.0.7
@@ -366,6 +369,8 @@ m_ResolvedPackages:
     - 8.0.0-pre.1
     - 8.0.0-pre.3
     - 8.0.0
+    - 8.0.1
+    - 9.0.0-pre.1
     compatible:
     - 6.0.4
     - 6.0.5
@@ -490,7 +495,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 2D
-  type: 
+  type: asset
   description: SpriteShape Runtime & Editor Package contains the tooling and the
     runtime component that allows you to create very organic looking spline based
     2D worlds. It comes with intuitive configurator and a highly performant renderer.
@@ -572,6 +577,8 @@ m_ResolvedPackages:
     - 8.0.1
     - 9.0.0-pre.1
     - 9.0.0
+    - 9.0.1
+    - 10.0.0-pre.1
     compatible:
     - 7.0.5
     - 7.0.6
@@ -622,7 +629,7 @@ m_ResolvedPackages:
     scopes: []
     isDefault: 1
     capabilities: 7
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637915828240000000
   documentationUrl: 
@@ -3534,9 +3541,12 @@ m_ResolvedPackages:
     - 7.0.0
     - 7.0.1
     - 7.0.2
+    - 7.0.3
     - 8.0.0-pre.1
     - 8.0.0-pre.2
     - 8.0.0
+    - 8.0.1
+    - 9.0.0-pre.1
     compatible:
     - 6.0.3
     - 6.0.4
