@@ -521,11 +521,11 @@ MonoBehaviour:
   - "I know about magic a decent amount.  After all, I\u2019ve been grinding away
     at a degree in magical engineering for four years but something like this would
     stop even my toughest professors in their tracks. "
-  - 
+  - ...
   - So pretty much magic is a pretty common force in this world. Its more of a feature
     that is integrated into some technologies. It used to be a whole lot rarer but
     people in my field have really been trying to revive it.
-  - 
+  - ...
   - "Building a self-refilling water bottle seems like small potatoes compared to...
     whatever this is.  Props to the person who caused all this, it sounds like *they*
     don\u2019t need \"detailed blueprints\" for all their projects. "
@@ -540,7 +540,6 @@ MonoBehaviour:
   - "If I don\u2019t leave now, I never will. Even a small step outside is better
     than nothing. Just think of it as going out to get my computer fixed or going
     to get some groceries. Maybe it won\u2019t take long at all.... "
-  - 
   SuccessText:
   - GG
   - Ya did it

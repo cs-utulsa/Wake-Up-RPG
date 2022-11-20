@@ -19,15 +19,15 @@ public class StartCanvas : MonoBehaviour
 
     [Header("Canvas Settings")]
     public Text titleTextBox;
-    public Text creditsTextBox;
-    public Text copyrightTextBox;
+    ///public Text creditsTextBox;
+    //public Text copyrightTextBox;
     // Start is called before the first frame update
     void Start()
     {
         gm = GameManager.GM;
         titleTextBox.text = gm.gameTitle;
-        creditsTextBox.text = gm.gameCredits;
-        copyrightTextBox.text = gm.copywriteDate;
+        //creditsTextBox.text = gm.gameCredits;
+        //copyrightTextBox.text = gm.copywriteDate;
     }//end Start()
 
     public void StartGame(){
