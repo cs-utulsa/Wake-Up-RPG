@@ -67,6 +67,7 @@ public bool minigameResult = false;
     void Awake(){
     CheckGameManagerIsInScene();
     currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+    alarm = new alarm();
     }//end Awake()
 
 void Update(){
@@ -81,7 +82,7 @@ void Update(){
 }//end Update
 
 public void StartGame(){
-    if (alarm.inTimeFrame() == true)
+    if (/*alarm.inTimeFrame() ==*/ true)
     { //Modified startgame by Brennan Gillespie
         gameLevelsCount = 0;
         gameState = gameStates.Playing;//playing game state

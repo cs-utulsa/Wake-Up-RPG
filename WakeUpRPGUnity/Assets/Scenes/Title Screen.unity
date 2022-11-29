@@ -2054,6 +2054,10 @@ PrefabInstance:
       propertyPath: gameLevels.Array.data[0]
       value: NarrationSample
       objectReference: {fileID: 0}
+    - target: {fileID: 5243749862769318398, guid: e24e2f375ab5c10409d111876318da65, type: 3}
+      propertyPath: gameLevels.Array.data[1]
+      value: Day 1 Minigame
+      objectReference: {fileID: 0}
     - target: {fileID: 5243749862769318399, guid: e24e2f375ab5c10409d111876318da65, type: 3}
       propertyPath: m_Name
       value: GameManager
