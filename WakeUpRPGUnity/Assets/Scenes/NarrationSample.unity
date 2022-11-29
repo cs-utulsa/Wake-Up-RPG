@@ -478,7 +478,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingText:
-  - 'Narrator: '
   - Over the past 5 days, the world has been frozen in time...
   - 'the beloved arcade, not a lot of activity after it was closed for repairs, the
     abandoned fields '
@@ -490,7 +489,6 @@ MonoBehaviour:
   - The world has seen magical items and technology integrated into the background
     of a typical human experience, but now all that technology is frozen.
   - So we have to go on foot now, have fun walking!
-  - 
   - 'Player: '
   - "When my professor introduced us to the art of Pompeii, I couldn\u2019t get it
     out of my head what those people must have felt. I imagine screaming, praying,
@@ -521,11 +519,9 @@ MonoBehaviour:
   - "I know about magic a decent amount.  After all, I\u2019ve been grinding away
     at a degree in magical engineering for four years but something like this would
     stop even my toughest professors in their tracks. "
-  - ...
   - So pretty much magic is a pretty common force in this world. Its more of a feature
     that is integrated into some technologies. It used to be a whole lot rarer but
     people in my field have really been trying to revive it.
-  - ...
   - "Building a self-refilling water bottle seems like small potatoes compared to...
     whatever this is.  Props to the person who caused all this, it sounds like *they*
     don\u2019t need \"detailed blueprints\" for all their projects. "
