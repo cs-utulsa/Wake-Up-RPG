@@ -30,8 +30,11 @@ public class GameManager : MonoBehaviour
         }//end if else
         DontDestroyOnLoad(this); //Do not destroy the game manager when new scene is loaded
     }//end CheckGameManagerIsInScene()
-    
+
     #endregion
+
+    //added by breannan
+    public alarm alarm;
 
 [Header("General Settings")]
 public string gameTitle = "Wake Up RPG";
@@ -64,6 +67,7 @@ public bool minigameResult = false;
     void Awake(){
     CheckGameManagerIsInScene();
     currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+    alarm = new alarm();
     }//end Awake()
 
 void Update(){
@@ -78,11 +82,13 @@ void Update(){
 }//end Update
 
 public void StartGame(){
-    gameLevelsCount = 0;
-    gameState = gameStates.Playing;//playing game state
-    timer = Stopwatch.StartNew();
-    SceneManager.LoadScene(gameLevels[gameLevelsCount]); //load first level
-
+    if (/*alarm.inTimeFrame() ==*/ true)
+    { //Modified startgame by Brennan Gillespie
+        gameLevelsCount = 0;
+        gameState = gameStates.Playing;//playing game state
+        timer = Stopwatch.StartNew();
+        SceneManager.LoadScene(gameLevels[gameLevelsCount]); //load first level
+    }
 }//end StartGame();
 
 public void ExitGame(){

@@ -32,7 +32,7 @@ public class MinigameItemFindController : MonoBehaviour
     public float gameDuration = 60.0f;
     float gameTime = 0.0f;
     public GameObject timerGO; 
-    float startingHeight = 386f;
+    float startingHeight = 215f;
     float endheight = 513f;
 
     bool gameEnded = false;
@@ -57,10 +57,10 @@ public class MinigameItemFindController : MonoBehaviour
         float lerpH = Mathf.Lerp(startingHeight,endheight,gameTime/gameDuration);
         Debug.Log(lerpH+"Lerp");
         Vector3 sunHeight = timerGO.transform.position;
-        
         sunHeight.y = Mathf.Min(lerpH,endheight);
         Debug.Log(sunHeight);
         timerGO.transform.localPosition = sunHeight;
+        timerGO.transform.Rotate(Vector3.forward*10*Time.deltaTime);
         gameTime += Time.deltaTime;
         if(gameTime > gameDuration){
             gameEnded = true;
