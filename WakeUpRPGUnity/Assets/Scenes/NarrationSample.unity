@@ -782,6 +782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingText:
+  - 'Narrator:'
   - Over the past 5 days, the world has been frozen in time...
   - 'the beloved arcade, not a lot of activity after it was closed for repairs, the
     abandoned fields '
