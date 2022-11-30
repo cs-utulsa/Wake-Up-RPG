@@ -46,14 +46,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d10ce3ed793a5b47b70be33381d9076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTitle: Wake Up RPG
+  alarm: {fileID: 0}
+  gameTitle: Blink of an Eye
   gameCredits: 'Made by: Kami J, Aidan P, Zhiyong L, Brennan G, Emily M, Josh S'
   copywriteDate: Copyright 2022
   startString: Title Screen
   endScene: EndScene
   gameLevels:
-  - Narration Example
-  - Day 1M inigame
+  - NarrationSample
+  - Day 1 Minigame
   nextLevel: 0
   minigameResult: 0
 --- !u!114 &5378167971833767431

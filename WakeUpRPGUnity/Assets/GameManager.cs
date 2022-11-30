@@ -67,7 +67,7 @@ public bool minigameResult = false;
     void Awake(){
     CheckGameManagerIsInScene();
     currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-    alarm = new alarm();
+    //alarm = new alarm();
     }//end Awake()
 
 void Update(){

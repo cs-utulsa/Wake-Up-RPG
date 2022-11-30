@@ -235,7 +235,7 @@ RectTransform:
   m_GameObject: {fileID: 61772557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6452, y: 1.6452, z: 1.6452}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1729378371}
@@ -243,8 +243,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -317}
-  m_SizeDelta: {x: 160, y: 160}
+  m_AnchoredPosition: {x: 18, y: -293}
+  m_SizeDelta: {x: 77.77, y: 82.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &61772559
 MonoBehaviour:
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1436,7 +1436,7 @@ RectTransform:
   m_GameObject: {fileID: 631938577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6452, y: 1.6452, z: 1.6452}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1133672833}
@@ -1444,8 +1444,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 36, y: -309}
-  m_SizeDelta: {x: 160, y: 160}
+  m_AnchoredPosition: {x: 18, y: -293}
+  m_SizeDelta: {x: 77.77, y: 82.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &631938579
 MonoBehaviour:
@@ -1516,7 +1516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1724,7 +1724,7 @@ MonoBehaviour:
   endDayCanvas: {fileID: 786886634}
   winText: {fileID: 1550140170}
   loseText: {fileID: 1443334060}
-  gameDuration: 30
+  gameDuration: 60
   timerGO: {fileID: 1133956321}
 --- !u!4 &671861055
 Transform:
@@ -2120,6 +2120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d10ce3ed793a5b47b70be33381d9076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alarm: {fileID: 0}
   gameTitle: Wake Up RPG
   gameCredits: 'Made by: THE GANG'
   copywriteDate: Copyright 2022
@@ -4116,7 +4117,7 @@ RectTransform:
   m_GameObject: {fileID: 1813952036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9367, y: 1.1281, z: 1}
+  m_LocalScale: {x: 1.6452, y: 1.6452, z: 1.6452}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1348731239}
@@ -4124,8 +4125,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17.65, y: -322}
-  m_SizeDelta: {x: 98.93, y: 105.72}
+  m_AnchoredPosition: {x: 18, y: -293}
+  m_SizeDelta: {x: 77.77, y: 82.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1813952038
 MonoBehaviour:
@@ -4196,7 +4197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4861,7 +4862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4738094364297296769, guid: a48ff3f03a1629b4eb178811f396855c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 4738094364297296769, guid: a48ff3f03a1629b4eb178811f396855c, type: 3}
       propertyPath: m_LocalRotation.w
