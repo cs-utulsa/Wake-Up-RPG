@@ -19,6 +19,7 @@ public class MinigameItemFindController : MonoBehaviour
     //public string narrScene;
     public GameObject[] rooms;
     public GameObject[] items;
+    public GameObject[] listmarks;
     public bool[] itemCollected;
     public string[] itemDescriptions;
     public GameObject ExitButton;
@@ -80,6 +81,7 @@ public class MinigameItemFindController : MonoBehaviour
     public void GetItem(int itemNum){
         //ItemPopup(itemNum);
         items[itemNum].transform.Find("ItemGot").gameObject.SetActive(true);
+        listmarks[itemNum].SetActive(true);
         itemCollected[itemNum] = true;
         if (InventoryCheck()){ExitButton.GetComponent<Button>().interactable = true;}
     } 
