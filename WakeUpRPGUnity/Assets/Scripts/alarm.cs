@@ -83,9 +83,9 @@ public class alarm : MonoBehaviour
         alarmTime += ts;
         Debug.Log("set1");
         //while (DateTime.Now >= alarmTime)
-        {
+        //{
         //    alarmTime = alarmTime.AddDays(1);
-        }
+        //}
 
         setWindow(hours, minutes, windowSize);
 

@@ -14,6 +14,7 @@ using System.Diagnostics;
 using System.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+//using System;
 
 public class GameManager : MonoBehaviour
 {   
@@ -82,7 +83,8 @@ void Update(){
 }//end Update
 
 public void StartGame(){
-    if (/*alarm.inTimeFrame() ==*/ true)
+    if (/*alarm.inTimeFrame() ==*/ true  
+            /*&& DateTime.Now.DayOfYear != last played (in SaveSystem)*/)
     { //Modified startgame by Brennan Gillespie
         gameLevelsCount = 0;
         gameState = gameStates.Playing;//playing game state

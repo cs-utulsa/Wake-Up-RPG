@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleMenuManager : MonoBehaviour
 {
@@ -27,4 +28,15 @@ public class TitleMenuManager : MonoBehaviour
         //enable desitination menu
     }
     */
+
+    //does not seem to work
+    void popUpWindow(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
+    void closeWindow(GameObject obj)
+    {
+        obj.SetActive(false);
+    }
+
 }

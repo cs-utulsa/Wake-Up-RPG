@@ -1,3 +1,4 @@
+using System;
 
 public class SaveSystem
 {
@@ -9,6 +10,7 @@ public class SaveSystem
     //[ShowInInspector]  private int numDays = 5;
    
     public int dayOfWeek = 0;
+    public int lastPlayed;
 
 
     // plan
