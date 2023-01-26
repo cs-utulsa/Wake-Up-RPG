@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Day1Minigame.unity
+- path: Assets/Scenes/Notification Experiments.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
