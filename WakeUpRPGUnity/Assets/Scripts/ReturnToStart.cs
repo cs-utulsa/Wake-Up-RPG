@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ReturnToStart : MonoBehaviour
 {
+    SaveManager sm = new SaveManager();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +21,7 @@ public class ReturnToStart : MonoBehaviour
 
     public void StartScreen(){
         SceneManager.LoadScene("Title Screen");
+        //added
+        sm.save();
     }
 }
