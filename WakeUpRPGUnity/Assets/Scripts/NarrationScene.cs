@@ -2,16 +2,17 @@
  * Created By: Aidan Pohl
  * Created: 10/05/2022
  * 
- * Last Edited By: Brennan Gillespie
- * Last Edited: 11/02/2022
+ * Last Edited By: Aidan Pohl
+ * Last Edited: Feb/06/2022
  * 
- * Description: Game Module
+ * Description: Narration Scene Handler
  * */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI; //Reference to user interface
+using System.IO;
 
 public class NarrationScene : MonoBehaviour
 {
@@ -26,15 +27,7 @@ public class NarrationScene : MonoBehaviour
     public Text narrationBox;
 
     [Header("Backgrounds")]
-    /*
-    public GameObject arcade;
-    public GameObject library;
-    public GameObject books;
-    public GameObject window;
-    public GameObject dryWall;
-    public GameObject calander;
-    */
-
+   
     public GameObject[] backgrounds;
     public int[] switchTime_time;
     public int[] switchTime_back;
@@ -42,24 +35,27 @@ public class NarrationScene : MonoBehaviour
 
     [Header("GameScene")]
     public string MinigameSceneName;
+    public string narrationFileName;
+    private StreamReader NarrReader;
 
     GameManager gm;
+
+    struct Line
+    {
+        string Text;
+        string Speaker;
+        string Expression;
+        string Background;
+    }
     // Start is called before the first frame update
 
+    List<Line> lines;
     void Start()
     {
         gm = GameManager.GM;
 
-        //switchTime = new switchTime[backgrounds.GetLength(), 4 ];
-
-        /*
-        books.SetActive(false);
-        window.SetActive(false);
-        dryWall.SetActive(false);
-        calander.SetActive(false);
-        library.SetActive(false);
-        arcade.SetActive(false);
-        */
+        NarrReader = new StreamReader(narrationFileName);
+        ReadNarrFile(lines);
         backgrounds[0].SetActive(true);
         for (int i = 1; i< backgrounds.Length; i++)
         {
