@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeEnemy: {fileID: 9072735505556417479, guid: be37cc924c8fef44fb1485cdae6d19a7, type: 3}
-  allowEnemies: 1
+  allowEnemies: 0
 --- !u!1001 &239180908758079610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -521,51 +521,51 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 898393706695749479, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_Color.b
-      value: 0.091625154
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 898393706695749479, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_Color.g
-      value: 0.091625154
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 898393706695749479, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_Color.r
-      value: 0.6698113
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1078186653614398432, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_Color.b
-      value: 0.28751335
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1078186653614398432, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_Color.g
-      value: 0.6698113
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1078186653614398432, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_Color.r
-      value: 0.52014816
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2886930854737630844, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_Color.b
-      value: 0.54901963
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2886930854737630844, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_Color.g
-      value: 0.10666204
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2886930854737630844, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5521027264694772360, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_Color.b
-      value: 0.28751338
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5521027264694772360, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_Color.g
-      value: 0.7679758
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5521027264694772360, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_Color.r
-      value: 0.8584906
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8610030144322714368, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_Name

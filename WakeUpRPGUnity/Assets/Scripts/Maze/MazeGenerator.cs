@@ -26,7 +26,7 @@ public class MazeGenerator : MonoBehaviour {
     Generate();
     foreach (GameObject room in maze){
         room.GetComponent<RoomCamera>().Hide(); //hides all rooms by default
-        room.GetComponent<RoomFloor>().RecolorByDistance(room.GetComponent<RoomDoors>().getDistToExit(exitX,exitY));//recolors the ground based on distance to goal
+        //room.GetComponent<RoomFloor>().RecolorByDistance(room.GetComponent<RoomDoors>().getDistToExit(exitX,exitY));//recolors the ground based on distance to goal
     }
 
         

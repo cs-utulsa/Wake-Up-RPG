@@ -30,7 +30,7 @@ public class RoomCamera : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other){
         //Debug.Log("Ping exit");
         if(other.gameObject.tag == "Render"){
-           Hide();
+           //Hide();
         }
     }
 

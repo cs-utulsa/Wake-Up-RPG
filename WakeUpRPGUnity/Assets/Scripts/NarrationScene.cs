@@ -55,7 +55,7 @@ public class NarrationScene : MonoBehaviour
         gm = GameManager.GM;
 
         NarrReader = new StreamReader(narrationFileName);
-        ReadNarrFile(lines);
+        //ReadNarrFile(lines);
         backgrounds[0].SetActive(true);
         for (int i = 1; i< backgrounds.Length; i++)
         {
