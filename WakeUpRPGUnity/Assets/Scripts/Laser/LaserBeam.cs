@@ -140,17 +140,17 @@ public class LaserBeam : MonoBehaviour
     }//end Awake()
 
     public void Update(){
-        ShootBeam();
-        switch (GameManager.gameState)
-        {
-            case (GameManager.gameStates.Playing):
-                ShootBeam();
-                break;
-            case (GameManager.gameStates.Idle):
-                break;
-            case (GameManager.gameStates.LevelWin):
-                break;
-        }//end switch case
+        //ShootBeam();
+        //switch (GameManager.gameState)
+        //{
+         //   case (GameManager.gameStates.Playing):
+        //        ShootBeam();
+        //        break;
+        //    case (GameManager.gameStates.Idle):
+        //        break;
+        //    case (GameManager.gameStates.LevelWin):
+        //        break;
+        //}//end switch case
     }//end Update()
 
 }
