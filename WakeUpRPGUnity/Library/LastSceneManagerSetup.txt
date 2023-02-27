@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/Level 0 - Rotate.unity
+=======
+- path: Assets/Scenes/Notification Experiments.unity
+>>>>>>> Notif-Testing
   isLoaded: 1
   isActive: 1
   isSubScene: 0
