@@ -1,23 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[SelectionBase]
 public class RoomDoors : MonoBehaviour
-{  
-    
+{
+    [Header("Set in Script, Shown just for Debugging")]
     [SerializeField]private GameObject doorN;
     [SerializeField]private GameObject doorE;
     [SerializeField]private GameObject doorS;
     [SerializeField]private GameObject doorW;
-    public bool[] openDoors = new bool[4]{false,false,false,false}; //{N,E,S,W}
-    public bool mapped = false;
-    [SerializeField] private int[] mazeLoc;
+    [SerializeField]private bool[] openDoors = new bool[4]{false,false,false,false}; //{N,E,S,W}
+    [SerializeField]private bool mapped = false;
+    [SerializeField]private int[] mazeLoc;
     private int distToExit;
 
     // Start is called before the first frame update
     void Start()
     {   
-        openDoors = new bool[4]{false,false,false,false};//All doors are closed by default
+        //openDoors = new bool[4]{false,false,false,false};//All doors are closed by default
     }//end Start
 
     public void SetDoors(string doors){ //uses a string to set states of all doors
@@ -33,7 +33,7 @@ public class RoomDoors : MonoBehaviour
             openDoors[2] = true;
             else
             openDoors[2] = false;
-        if(doors.Contains("W")||doors.Contains("R"))
+        if(doors.Contains("W")||doors.Contains("L"))
             openDoors[3] = true;
             else
             openDoors[3] = false;
@@ -139,4 +139,27 @@ public class RoomDoors : MonoBehaviour
         return (System.Math.Abs(mazeLoc[0]-exitX)+System.Math.Abs(mazeLoc[1]-exitY));
     }
 
+    public void ToggleDoor(char direction)
+    {
+        switch (direction)
+        {
+            case ('N'):
+            case ('U'):
+                openDoors[0] = !openDoors[0];
+                break;
+            case ('E'):
+            case ('R'):
+                openDoors[1] = !openDoors[1];
+                break;
+            case ('S'):
+            case ('D'):
+                openDoors[2] = !openDoors[2];
+                break;
+            case ('W'):
+            case ('L'):
+                openDoors[3] = !openDoors[3];
+                break;
+        }
+        UpdateDoors();
+    }
     }

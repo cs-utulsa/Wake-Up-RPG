@@ -1,3 +1,13 @@
+/**
+ * 
+ * Created by: Aidan Pohl
+ * Created: Sometime in 2020
+ * 
+ * Last edited by: Adian Pohl
+ * Last edited: March 1, 2023
+ * 
+ * Description: Handles the creation and optional path generation of a maze of predetwrmined width and height
+ */
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,32 +18,61 @@ public class MazeGenerator : MonoBehaviour {
 
     public int mazeWidth , mazeHeight, startX, startY,exitX,exitY;
     //public static string mazeSeed;
-    public GameObject room;
+    public bool generateRooms = false;
+    public bool generatePaths = false;
+    public bool hideRooms = true;
+    public GameObject roomPrefab;
+    public GameObject goalPrefab;
+    public GameObject playerGO;
     private GameObject[,] maze;
     System.Random rand = new System.Random();
 
-   void Start(){
-       //This part generates a grid of enclosed rooms of size mazeWidth x mazeHeight
-       maze = new GameObject[mazeWidth,mazeHeight];
-       startX = mazeWidth/2; startY = mazeWidth/2; exitX = startX+(rand.Next(mazeWidth)-(mazeWidth/2)); exitY = startY+(rand.Next(mazeHeight)-(mazeHeight/2));
-       for (int i = 0; i < mazeHeight; i++){
-           for( int j = 0; j < mazeWidth; j++){
-               maze[j,i] = Instantiate(room, new Vector3(j*10f-(mazeWidth/2*10),i*-10f+(mazeHeight/2*10),0), Quaternion.identity, transform);// Makes a new Room at the location in the grid.
-               maze[j,i].GetComponent<RoomDoors>().setMazeLoc(j,i); //Records the relative location in the Room.
-               maze[j,i].name = "Room ("+i+", "+j+")"; //names the room so its *slightly* less confusing
-           }// end for loop
-       }//end for loop
-    Generate();
-    foreach (GameObject room in maze){
-        room.GetComponent<RoomCamera>().Hide(); //hides all rooms by default
-        //room.GetComponent<RoomFloor>().RecolorByDistance(room.GetComponent<RoomDoors>().getDistToExit(exitX,exitY));//recolors the ground based on distance to goal
-    }
 
+    void Start() {
+        if (generateRooms)
+        {
+            GenerateRooms();
+        }
+        if (generatePaths) { 
+             GeneratePaths(); }
+        if (hideRooms)
+        {
+            foreach (GameObject room in maze)
+            {
+                room.GetComponent<RoomCamera>().Hide(); //hides all rooms
+            }
+        }
+        SetStartAndExit();
         
    }//end Start
+    public void GenerateRooms()//This part generates a grid of enclosed rooms of size mazeWidth x mazeHeight
+    {
+        if (maze != null)
+        {
+            foreach (GameObject room in maze)//deletes preexisting rooms
+            {
+                DestroyImmediate(room);
+            }
+        }
 
-   void Generate(){ //The code that carves out the maze. Uses a depth-first tree to generate the maze.
-       
+        maze = new GameObject[mazeWidth, mazeHeight];
+        for (int i = 0; i < mazeHeight; i++)
+        {
+            for (int j = 0; j < mazeWidth; j++)
+            {
+                maze[j, i] = Instantiate(roomPrefab, new Vector3(j * 10f - (mazeWidth / 2 * 10), i * -10f - (mazeHeight / 2 * 10), 0), Quaternion.identity, transform);// Makes a new Room at the location in the grid.
+                maze[j, i].GetComponent<RoomDoors>().setMazeLoc(j, i); //Records the relative location in the Room.
+                maze[j, i].name = "Room (" + i + ", " + j + ")"; //names the room so its *slightly* less confusing
+            }// end for loop
+        }//end for loop
+
+
+    }
+   public void GeneratePaths(){ //The code that carves out the maze. Uses a depth-first tree to generate the maze.
+       foreach(GameObject room in maze)
+        {
+            room.GetComponent<RoomDoors>().SetDoors("");
+        }
        int visitedCells = 1;
        int totalCells = mazeWidth*mazeHeight;
        Stack<GameObject> workingCells = new Stack<GameObject>();
@@ -43,13 +82,7 @@ public class MazeGenerator : MonoBehaviour {
             int[] mazeLoc = curCell.GetComponent<RoomDoors>().getMazeLoc(); //gets the location of curCell within maze
             int[] startLoc = {startX,startY};
             int[] exitLoc = {exitX,exitY};
-            if(mazeLoc.SequenceEqual(startLoc) || mazeLoc.SequenceEqual(exitLoc))
-            {
-                curCell.GetComponent<RoomEnemies>().enableEnemies(false);
-            }else{
-                curCell.GetComponent<RoomEnemies>().genEnemies();
-            }
-
+            
            List<GameObject> adjacentCells = getAdjacentCellsWithWalls(mazeLoc[0],mazeLoc[1], maze); //Get adjacent cells with all walls/no doors.
            if(adjacentCells.Count != 0){ //Has adjacent cells will all walls
                 GameObject randCell = adjacentCells[rand.Next(adjacentCells.Count)];//get one of the adjacent doorless cells
@@ -85,6 +118,20 @@ public class MazeGenerator : MonoBehaviour {
     } else {return false;}//end if-else
    }//end WithinMazeBounds
 
+    public void SetStartAndExit()
+    {
+        //Place the player in the starting room
+        Vector3 startPos = maze[startX, startY].transform.position;
+        playerGO.transform.position = startPos;
+        Camera.main.GetComponent<CameraFollower>().target = (maze[startX, startY].transform);
+        Camera.main.GetComponent<CameraFollower>().InstantFocus();
+
+        if (goalPrefab != null)//if there is a goal prefab. create an instance and put it in the exit room
+        {
+            Vector3 endPos = maze[exitX, exitY].transform.position;
+            Instantiate(goalPrefab, endPos, Quaternion.identity, maze[exitX, exitY].transform);
+        }
+    }
     public System.Random getRand(){
         return rand;
     }
