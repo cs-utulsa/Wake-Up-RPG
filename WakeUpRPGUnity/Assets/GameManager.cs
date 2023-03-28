@@ -64,11 +64,11 @@ public bool minigameResult = false;
 
 
 /***Methods***/
-    void Awake(){
+void Awake(){
     CheckGameManagerIsInScene();
     currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
     //alarm = new alarm();
-    }//end Awake()
+}//end Awake()
 
 void Update(){
     //UnityEngine.Debug.Log(gameState);
@@ -84,9 +84,10 @@ void Update(){
 public void StartGame(){
     if (/*alarm.inTimeFrame() ==*/ true)
     { //Modified startgame by Brennan Gillespie
-        gameLevelsCount = 0;
-        gameState = gameStates.Playing;//playing game state
-        timer = Stopwatch.StartNew();
+        //SaveJson sj = new SaveJson();
+        //gameLevelsCount = sj.LoadLevel();
+        //gameState = gameStates.Playing;//playing game state
+        //timer = Stopwatch.StartNew();
         SceneManager.LoadScene(gameLevels[gameLevelsCount]); //load first level
     }
 }//end StartGame();

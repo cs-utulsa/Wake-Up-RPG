@@ -10,7 +10,6 @@ public class SaveSystem
    
     public int dayOfWeek = 0;
 
-
     // plan
 
     //day tracker system

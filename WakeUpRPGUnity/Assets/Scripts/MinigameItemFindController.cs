@@ -10,7 +10,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class MinigameItemFindController : MonoBehaviour
 {   
     static private MinigameItemFindController mifc; // reference to Self
