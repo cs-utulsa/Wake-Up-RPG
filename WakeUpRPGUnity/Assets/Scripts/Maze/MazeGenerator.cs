@@ -24,7 +24,7 @@ public class MazeGenerator : MonoBehaviour {
     public GameObject roomPrefab;
     public GameObject goalPrefab;
     public GameObject playerGO;
-    private GameObject[,] maze;
+    [SerializeField] private GameObject[,] maze;
     System.Random rand = new System.Random();
 
 
