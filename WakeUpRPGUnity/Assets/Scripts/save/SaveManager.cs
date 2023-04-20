@@ -7,6 +7,7 @@ public class SaveManager : MonoBehaviour
     public static SaveManager Instance { set; get;  }
     public SaveSystem curSave;
 
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);

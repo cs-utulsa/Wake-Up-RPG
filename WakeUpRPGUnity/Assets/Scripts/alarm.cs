@@ -25,6 +25,8 @@ public class alarm : MonoBehaviour
     }
 
 
+
+
     // Update is called once per frame
     void Update()
     {

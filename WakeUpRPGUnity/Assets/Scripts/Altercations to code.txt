@@ -1,0 +1,16 @@
+Altercations to code
+
+-Brennan List of slightly altered code for my purposes
+
+Whenever I work not all code is imeediately loaded into unity
+I have to alter the code slightly to work in the form of an extra space or comment
+
+loaded all, lead to missing assets that I could not fix
+
+had to undo one of the fixing to get the asset problem
+CountdownTimer not present
+
+caused another problem
+commented out line 30 in EnemyMovement in Maze folder of scripts
+
+uncomment out to have enerything work as intended
