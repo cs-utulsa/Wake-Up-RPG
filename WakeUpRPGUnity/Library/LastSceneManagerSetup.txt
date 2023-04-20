@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Menu/Menu_app.unity
+- path: Assets/Scenes/Blueprint.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
