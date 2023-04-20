@@ -109,8 +109,6 @@ public class ClawMachine : MonoBehaviour {
 
     public void moveClawUp() {
 
-        Debug.Log("Deberia subir");
-
         
         Vector3 tempPos = posNow;
 

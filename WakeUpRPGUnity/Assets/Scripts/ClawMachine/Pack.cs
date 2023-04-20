@@ -23,7 +23,6 @@ public class Pack : MonoBehaviour {
 
         if(collision.gameObject.tag == "Claw") { 
 
-            Debug.Log("Ha tocado el paquete");
             //hace al padre el claw asi que se mueve con el
             //this.gameObject.transform.parent = collision.gameObject.transform;
            ClawMachine.insideMoveDown = false;

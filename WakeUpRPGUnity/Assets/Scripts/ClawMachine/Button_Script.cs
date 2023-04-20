@@ -26,8 +26,6 @@ public class Button_Script : MonoBehaviour {
                 buttonUp.SetActive(false);
                 buttonDown.SetActive(true);
 
-                Debug.Log("Ha tocado el botón");
-
                 ClawMachine.insideMoveDown = true;
 
             }
