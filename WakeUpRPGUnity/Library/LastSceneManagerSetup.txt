@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Library Maze.unity
+- path: Assets/Scenes/NarrationDay2.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
