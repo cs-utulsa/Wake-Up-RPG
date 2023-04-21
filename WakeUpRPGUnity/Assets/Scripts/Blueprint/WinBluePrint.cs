@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinBluePrint : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class WinBluePrint : MonoBehaviour
         {
             //Win
             Debug.Log("Win");
+            SceneManager.LoadScene("SelectDayToStart");
         }
         
     }

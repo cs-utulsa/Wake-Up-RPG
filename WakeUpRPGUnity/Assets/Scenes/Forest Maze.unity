@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16e35a70d39d3e4ab66c7e4b1745171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winScene: Day5NarrWin
+  winScene: SelectDayToStart
 --- !u!212 &1257731128
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -423,7 +423,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa470009a3ca3d945877f396ac89aa50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

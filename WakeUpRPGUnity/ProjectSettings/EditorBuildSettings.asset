@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Library Maze.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Menu/Title Screen.unity
     guid: ad5b7d27b25d6fc48b2c8c6945bb3089
+  - enabled: 1
+    path: Assets/Scenes/Library Maze.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/NarrationSample.unity
     guid: f4e1ac53b8ac9b44686474238c0880f5
@@ -65,4 +65,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu/Synopsis/Day0_Synopsis.unity
     guid: a39fb17f9e3acc548aaadcab2f520d2e
+  - enabled: 1
+    path: Assets/Scenes/Blueprint.unity
+    guid: d6c48264e2831544bb0d6816ac3a5ad3
+  - enabled: 1
+    path: Assets/Scenes/Forest Maze.unity
+    guid: 9d0bb9f6d092e14428d50bdf2f23f984
   m_configObjects: {}

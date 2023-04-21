@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEditor;
-using static UnityEditor.PlayerSettings;
 using JetBrains.Annotations;
 
 [CreateAssetMenu(fileName = "Narration" , menuName = "ScriptableObjects/NarrationScriptableObjectTemplate", order = 1)]
@@ -33,24 +32,7 @@ public class NarrationScriptableObjectTemplate : ScriptableObject
             }
         }
     }
-    public struct NarrImg
-    {
-        Texture2D img;
-        string name;
-
-        public NarrImg(string assetPath, int type)
-        { if (type == 0)
-            {
-                img = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/NarrImgs/" + assetPath, typeof(Texture2D));
-                name = assetPath;
-            }
-            else
-            {
-                img = (Texture2D)AssetDatabase.LoadAssetAtPath(assetPath, typeof(Texture2D));
-                name = assetPath.Substring(assetPath.LastIndexOf('/') + 1);
-            }
-        }
-    }
+   
 
     public NarrLine[] Day1Narr;
     public NarrLine[] Day1PostGame;

@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16e35a70d39d3e4ab66c7e4b1745171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winScene: NarrDay3Win
+  winScene: SelectDayToStart
 --- !u!212 &1618187461
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -215,7 +215,7 @@ MonoBehaviour:
   speakerName: {fileID: 1821044066}
   backgroundImg: {fileID: 341448098}
   speakerImg: {fileID: 2114987758}
-  MinigameSceneName: Day1Minigame
+  MinigameSceneName: SelectDayToStart
 --- !u!4 &198062504
 Transform:
   m_ObjectHideFlags: 0
