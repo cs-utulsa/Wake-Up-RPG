@@ -19,14 +19,17 @@ public class NarrationScriptableObjectTemplate : ScriptableObject
 
         public NarrLine(string txt, string narr, string narrImg, string backImg)
         {
-            Debug.Log("pop!");
+            Debug.Log("bubble!");
             this.text = txt;
             this.narrator = narr;
-            this.narrImg = Resources.Load<Sprite>("NarrImgs/portait-"+narr+"-"+narrImg);
+            //string port = "NarrImgs/portait-" + narr + "-" + narrImg;
+                Debug.Log("NarrImgs/portrait-" + narr + "-" + narrImg);
+            this.narrImg = Resources.Load<Sprite>("NarrImgs/portrait-" + narr + "-" + narrImg);
             this.backImg = Resources.Load<Sprite>("NarrImgs/" +backImg);
-            if(this.backImg != null)
+            if(this.narrImg != null)
             {
-                Debug.Log("bubble");
+                Debug.Log("POP!");
+                //this.narrImg = Resources.Load<Sprite>("NarrImgs/Transparent");
             }
         }
     }

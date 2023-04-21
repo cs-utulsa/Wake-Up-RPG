@@ -18,10 +18,13 @@ public class NarrSceneV2 : MonoBehaviour
     void Start()
     {
         narrationBox.text = template.Day1Narr[currLine].text;
-        speakerName.text = template.Day1Narr[currLine].narrator;
+        if (template.Day1Narr[currLine].narrator != "NULL")
+        {
+            speakerName.text = template.Day1Narr[currLine].narrator;
+        }
         if (template.Day1Narr[currLine].narrImg != null)
         {
-            speakerImg.sprite = template.Day1Narr[currLine].narrImg;
+            speakerImg.overrideSprite = template.Day1Narr[currLine].narrImg;
         }
         if (template.Day1Narr[currLine].backImg != null)
         {
@@ -41,7 +44,10 @@ public class NarrSceneV2 : MonoBehaviour
         {
             currLine++;
             narrationBox.text = template.Day1Narr[currLine].text;
-            speakerName.text = template.Day1Narr[currLine].narrator;
+            if (template.Day1Narr[currLine].narrator != "NULL")
+            {
+                speakerName.text = template.Day1Narr[currLine].narrator;
+            }
             if (template.Day1Narr[currLine].narrImg != null)
             {
                 Debug.Log("testc");
