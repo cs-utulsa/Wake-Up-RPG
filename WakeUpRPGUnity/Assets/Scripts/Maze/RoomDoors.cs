@@ -66,7 +66,7 @@ public class RoomDoors : MonoBehaviour
     }//end OpenDoor
 
     public void OpenBackDoor(char direction){//opens door opposed of direction, used to open door adjacent to connecting door in adjacent room.
-        switch(direction){
+        switch(direction) {
             case('N'):case('U'):
                 openDoors[2] = true;
                 break;
