@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class synopsis_btn : MonoBehaviour
+
+public class Day0 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,4 +17,9 @@ public class synopsis_btn : MonoBehaviour
     {
         
     }
+
+    public void StartDay5() {
+         SceneManager.LoadScene("NarrationDay5");
+    }
+
 }

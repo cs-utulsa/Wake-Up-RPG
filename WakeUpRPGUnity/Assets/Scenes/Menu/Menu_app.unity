@@ -221,9 +221,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: start_botton, Assembly-CSharp
-        m_MethodName: StartGameMethod
+      - m_Target: {fileID: 58297687}
+        m_TargetAssemblyTypeName: start_selection, Assembly-CSharp
+        m_MethodName: SelectDayToStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -280,6 +280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 58297686}
+  - component: {fileID: 58297687}
   m_Layer: 0
   m_Name: START
   m_TagString: Untagged
@@ -302,6 +303,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &58297687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58297684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6da71a5705581a4689b2d3687aaaa28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &257625932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,9 +1416,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: start_botton, Assembly-CSharp
-        m_MethodName: StartGameMethod
+      - m_Target: {fileID: 1840333339}
+        m_TargetAssemblyTypeName: synopsis_btn, Assembly-CSharp
+        m_MethodName: StartSynopsis
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1900,6 +1913,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1840333338}
+  - component: {fileID: 1840333339}
   m_Layer: 0
   m_Name: SYNOPSIS
   m_TagString: Untagged
@@ -1922,6 +1936,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1840333339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840333336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c717882d40fe9445bc60da87d5e6541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1873481413
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,4 +29,40 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu/Settings_menu.unity
     guid: e40640cf6c59c8f43b886d034df96216
+  - enabled: 1
+    path: Assets/Scenes/Menu/SelectDayToStart.unity
+    guid: 4f05d3a117026fe4e90755847c72d4fe
+  - enabled: 1
+    path: Assets/Scenes/NarrationDay2.unity
+    guid: e240158fb943c074695cfb7a14af2c6d
+  - enabled: 1
+    path: Assets/Scenes/NarrationDay3.unity
+    guid: a8b0277738036414dbdb133b6be0b745
+  - enabled: 1
+    path: Assets/Scenes/NarrationDay4.unity
+    guid: 351e3a086a5d5fa41bb0b878870b7235
+  - enabled: 1
+    path: Assets/Scenes/NarrationDay5.unity
+    guid: 5f00d56ad74ebe244980a3f0e810ae23
+  - enabled: 1
+    path: Assets/Scenes/Menu/Synopsis/Synopsis.unity
+    guid: 3e4974321f5288948a1962a23d9e4e0d
+  - enabled: 1
+    path: Assets/Scenes/Menu/Synopsis/Day1_Synopsis.unity
+    guid: 7884e9e9fa12594468a0f650145417d2
+  - enabled: 1
+    path: Assets/Scenes/Menu/Synopsis/Day2_Synopsis.unity
+    guid: 83479bdb2de1e364c9414c798270704f
+  - enabled: 1
+    path: Assets/Scenes/Menu/Synopsis/Day3_Synopsis.unity
+    guid: c70fb4cbde5c0454c9ae615653b7d31a
+  - enabled: 1
+    path: Assets/Scenes/Menu/Synopsis/Day4_Synopsis.unity
+    guid: 1abdce2240e8de74cab33cc0bad87b31
+  - enabled: 1
+    path: Assets/Scenes/Menu/Synopsis/Day5_Synopsis.unity
+    guid: 2a71fa9a03656224a8a5bc552e427535
+  - enabled: 1
+    path: Assets/Scenes/Menu/Synopsis/Day0_Synopsis.unity
+    guid: a39fb17f9e3acc548aaadcab2f520d2e
   m_configObjects: {}
