@@ -62,6 +62,8 @@ public class DragAndDrop : MonoBehaviour
         {
             this.transform.position = new Vector3(correctForm.transform.position.x, correctForm.transform.position.y, correctForm.transform.position.z);
             fin = true;
+
+            GameObject.Find("PointHandler").GetComponent<WinBluePrint>().addPoints();
         }
         else
         {
