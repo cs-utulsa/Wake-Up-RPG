@@ -34,7 +34,6 @@ Transform:
   - {fileID: 5189996111022396113}
   - {fileID: 3298836191759200138}
   - {fileID: 8729194471166913544}
-  - {fileID: 1726524423167333829}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -521,7 +520,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 3883075706400872441}
+    m_TransformParent: {fileID: 8729194471166913544}
     m_Modifications:
     - target: {fileID: 646076916611746189, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -641,7 +640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8610030144322714374, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8610030144322714374, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_LocalPosition.x
@@ -653,7 +652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8610030144322714374, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8610030144322714374, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
       propertyPath: m_LocalRotation.w
@@ -697,11 +696,6 @@ PrefabInstance:
     - {fileID: 1197824833967561593, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
     - {fileID: 5763067078519883613, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
---- !u!4 &1726524423167333829 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8610030144322714374, guid: 73920b95a99c68c41aec7dbf4d788893, type: 3}
-  m_PrefabInstance: {fileID: 6956126407758868163}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7203888410414388694
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -43,7 +43,7 @@ public class MazeGenerator : MonoBehaviour {
                 room.GetComponent<RoomCamera>().Hide(); //hides all rooms
             }
         }
-        SetStartAndExit();
+        //SetStartAndExit();
         
    }//end Start
     public void GenerateRooms()//This part generates a grid of enclosed rooms of size mazeWidth x mazeHeight
