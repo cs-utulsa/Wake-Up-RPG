@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
     private void OnCollisionStay2D(Collision2D other){
         if(other.gameObject.tag == "Player"){
             if (attackSpeed <= canAttack){
-            timer.GetComponent<CountDownTimer>().UpdateTimer(-attackDamage);
+            //timer.GetComponent<CountDownTimer>().UpdateTimer(-attackDamage);
             canAttack = 0;
         }else {
             canAttack += Time.fixedDeltaTime;

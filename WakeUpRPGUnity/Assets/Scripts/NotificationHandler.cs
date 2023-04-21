@@ -1,8 +1,10 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Notifications.Android;
 using UnityEngine.Android;
+
 
 public class NotificationHandler : MonoBehaviour
 {
@@ -45,3 +47,4 @@ public class NotificationHandler : MonoBehaviour
     }
 }
 
+*/
