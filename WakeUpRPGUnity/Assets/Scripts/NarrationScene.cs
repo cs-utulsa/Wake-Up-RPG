@@ -16,6 +16,8 @@ using System.IO;
 
 public class NarrationScene : MonoBehaviour
 {
+    public NarrationScriptableObjectTemplate template;
+    
     [Header("Narration")]
     public string[] StartingText;
     public string[] SuccessText;
@@ -49,20 +51,10 @@ public class NarrationScene : MonoBehaviour
     }
     // Start is called before the first frame update
 
-    List<Line> lines;
-    void Start()
-    {
-        gm = GameManager.GM;
 
-        NarrReader = new StreamReader(narrationFileName);
-        //ReadNarrFile(lines);
-        backgrounds[0].SetActive(true);
-        for (int i = 1; i< backgrounds.Length; i++)
-        {
-            backgrounds[i].SetActive(false);
-        }
+    
 
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -142,4 +134,5 @@ public class NarrationScene : MonoBehaviour
     }
 
     }
+
 }
