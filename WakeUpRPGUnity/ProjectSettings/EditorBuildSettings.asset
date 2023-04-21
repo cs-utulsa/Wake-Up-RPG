@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Library Maze.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
-    path: Assets/Scenes/Title Screen (old).unity
+    path: Assets/Scenes/Title Screen.unity
     guid: ad5b7d27b25d6fc48b2c8c6945bb3089
   - enabled: 0
     path: Assets/Scenes/NarrationSample.unity
