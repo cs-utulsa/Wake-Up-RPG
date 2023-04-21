@@ -80,15 +80,18 @@ public class MazeGenEditor : Editor
         if (GUILayout.Button("Generate Rooms"))
         {
             mazeGenScript.GenerateRooms();
+            PrefabUtility.RecordPrefabInstancePropertyModifications(mazeGenScript.gameObject);
         }
 
         if (GUILayout.Button("Randomly Generate Paths"))
         {
             mazeGenScript.GeneratePaths();
+            PrefabUtility.RecordPrefabInstancePropertyModifications(mazeGenScript.gameObject);
         }
         if(GUILayout.Button("Set Start and End"))
         {
             mazeGenScript.SetStartAndExit();
+            PrefabUtility.RecordPrefabInstancePropertyModifications(mazeGenScript.gameObject);
         }
 
 

@@ -9,14 +9,15 @@ public class GameOver : MonoBehaviour
     public void EndGame(bool victory){
         if (inGame){
             inGame= false;
-        FreezeAll();
-        if(victory){
-            //Victory Screen
-        } else {
-            //Fail Screen
+            FreezeAll();
+            if(victory){
+                //Victory Screen
+            } else {
+                //Fail Screen
+            }
         }
-}
     }
+
 
     void FreezeAll(){
         GameObject.Find("Player").GetComponent<PlayerMovement>().SetMoveable(false);

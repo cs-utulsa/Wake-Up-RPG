@@ -9,6 +9,7 @@ TagManager:
   - Rotatable
   - Reflective
   - Laser
+  - Claw
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Backgrounds
   - Water
   - UI
-  - 
+  - Package
   - 
   - 
   - 

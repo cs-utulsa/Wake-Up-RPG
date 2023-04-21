@@ -36,7 +36,7 @@ public class RoomDoorsEditor : Editor
         GUILayout.BeginArea(rectS);//button for South door toggle
         if (GUILayout.Button("South"))
         {
-            doors.ToggleDoor('E');
+            doors.ToggleDoor('S');
         }
         GUILayout.EndArea();
 
